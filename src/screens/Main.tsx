@@ -2,6 +2,8 @@ import * as React from 'react'
 import { Button, Text, View } from 'react-native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { logout } from '../utils/auth'
+import { CommonActions } from '@react-navigation/routers'
 
 function DetailsScreen() {
   return (
@@ -11,7 +13,7 @@ function DetailsScreen() {
   )
 }
 
-function HomeScreen({ navigation }) {
+function HomeScreen({ navigation }: any) {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text>Home screen</Text>
@@ -23,13 +25,18 @@ function HomeScreen({ navigation }) {
   )
 }
 
-function SettingsScreen({ navigation }) {
+function SettingsScreen({ navigation }: any) {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text>Settings screen</Text>
       <Button
-        title="Go to Details"
-        onPress={() => navigation.navigate('Details')}
+        title="Logout"
+        onPress={() => {
+          logout()
+          navigation.dispatch(
+            CommonActions.reset({ index: 0, routes: [{ name: 'Landing' }] }),
+          )
+        }}
       />
     </View>
   )

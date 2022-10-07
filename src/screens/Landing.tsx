@@ -2,10 +2,17 @@ import * as React from 'react'
 import { View, Text, Button } from 'react-native'
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
 import { RootStackParamList } from '../../types'
+import { useUser } from '../utils/auth'
 
 export const LandingScreen = ({
   navigation,
 }: NativeStackScreenProps<RootStackParamList, 'Landing'>) => {
+  const user = useUser()
+  React.useEffect(() => {
+    if (user) {
+      navigation.navigate('Main')
+    }
+  }, [user])
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>Landing Screen</Text>

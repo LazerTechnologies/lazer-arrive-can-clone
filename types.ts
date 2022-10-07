@@ -2,7 +2,7 @@ export type RootStackParamList = {
   Landing: undefined
   Login: undefined
   CreateAccountEmail: undefined
-  CreateAccountPassword: undefined
+  CreateAccountPassword: { email: string }
   CreateAccountVerify: undefined
   Main: undefined
 }
