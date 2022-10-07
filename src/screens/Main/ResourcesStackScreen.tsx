@@ -6,7 +6,7 @@ import { Layout } from '../../components/Layout'
 const ResourcesStack = createNativeStackNavigator()
 
 export const ResourcesStackScreen = () => (
-  <ResourcesStack.Navigator>
+  <ResourcesStack.Navigator screenOptions={{ headerShown: false }}>
     <ResourcesStack.Screen
       name="ResourcesRootScreen"
       component={ResourcesScreen}

@@ -11,7 +11,7 @@ import { logout } from '../../utils/auth'
 const SettingsStack = createNativeStackNavigator()
 
 export const SettingsStackScreen = () => (
-  <SettingsStack.Navigator>
+  <SettingsStack.Navigator screenOptions={{ headerShown: false }}>
     <SettingsStack.Screen
       name="SettingsRootScreen"
       component={SettingsRootScreen}

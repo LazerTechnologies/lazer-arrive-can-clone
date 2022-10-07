@@ -8,7 +8,7 @@ import { createTraveller } from '../../utils/firestore'
 const TravellersStack = createNativeStackNavigator()
 
 export const TravellersStackScreen = () => (
-  <TravellersStack.Navigator>
+  <TravellersStack.Navigator screenOptions={{ headerShown: false }}>
     <TravellersStack.Screen
       name="TravellersRootScreen"
       component={TravellersScreen}

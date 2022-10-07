@@ -10,7 +10,7 @@ import { ParamListBase } from '@react-navigation/routers'
 const HomeStack = createNativeStackNavigator()
 
 export const HomeStackScreen = () => (
-  <HomeStack.Navigator>
+  <HomeStack.Navigator screenOptions={{ headerShown: false }}>
     <HomeStack.Screen name="HomeRootScreen" component={HomeRootScreen} />
   </HomeStack.Navigator>
 )
