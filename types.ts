@@ -10,3 +10,12 @@ export type RootStackParamList = {
   TravellersRootScreen: undefined
   ResourcesRootScreen: undefined
 }
+
+export interface ITraveller {
+  documentType: string
+  country: string
+  documentNumber: string
+  surname: string
+  givenNames: string
+  dateOfBirth: string
+}

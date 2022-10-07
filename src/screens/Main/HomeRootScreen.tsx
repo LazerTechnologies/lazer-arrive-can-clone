@@ -15,6 +15,12 @@ export const HomeStackScreen = () => (
   </HomeStack.Navigator>
 )
 
+// paginated form that collects the following info
+// arrival airport
+// date of arrival
+// phone number
+// language: en/fr
+//
 const HomeRootScreen = ({
   navigation,
 }: NativeStackScreenProps<ParamListBase, 'HomeRootScreen'>) => (

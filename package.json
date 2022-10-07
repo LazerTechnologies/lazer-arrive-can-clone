@@ -1,5 +1,5 @@
 {
-  "name": "arriveLazer",
+  "name": "lazer-arrive-can-clone",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -12,6 +12,7 @@
   "dependencies": {
     "@react-native-firebase/app": "^15.7.0",
     "@react-native-firebase/auth": "^15.7.0",
+    "@react-native-firebase/firestore": "^15.7.0",
     "@react-navigation/bottom-tabs": "^6.4.0",
     "@react-navigation/native": "^6.0.13",
     "@react-navigation/native-stack": "^6.9.0",
