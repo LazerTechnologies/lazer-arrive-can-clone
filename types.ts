@@ -5,4 +5,8 @@ export type RootStackParamList = {
   CreateAccountPassword: { email: string }
   CreateAccountVerify: undefined
   Main: undefined
+  SettingsRootScreen: undefined
+  HomeRootScreen: undefined
+  TravellersRootScreen: undefined
+  ResourcesRootScreen: undefined
 }

@@ -1,7 +1,7 @@
 import { View } from 'react-native'
 import * as React from 'react'
 
-export const Layout = ({ children }: { children: any }) => {
+export const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <View
       style={{

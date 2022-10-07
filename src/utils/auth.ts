@@ -1,19 +1,13 @@
 import { useState, useEffect } from 'react'
-import auth from '@react-native-firebase/auth'
+import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth'
 
-export const logout = () => {
-  auth().signOut()
-}
+export const logout = () => auth().signOut()
 
 export const useUser = () => {
-  const [user, setUser] = useState()
-
-  function onAuthStateChanged(user: any) {
-    setUser(user)
-  }
+  const [user, setUser] = useState<FirebaseAuthTypes.User | null>(null)
 
   useEffect(() => {
-    const subscriber = auth().onAuthStateChanged(onAuthStateChanged)
+    const subscriber = auth().onAuthStateChanged(user => setUser(user))
     return subscriber
   }, [])
 

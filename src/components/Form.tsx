@@ -1,13 +1,17 @@
-import { View, TextInput } from 'react-native'
+import { View, TextInput, TextInputProps } from 'react-native'
 import * as React from 'react'
+
+export interface IInput extends TextInputProps {
+  source: string
+}
 
 export const Form = ({
   inputs,
   state,
   setState,
 }: {
-  inputs: any[]
-  state: any
+  inputs: IInput[]
+  state: Record<string, string>
   setState: any
 }) => (
   <View style={{ width: '100%' }}>
@@ -34,5 +38,5 @@ export const Form = ({
   </View>
 )
 
-export const getInitialStateFromInputs = (inputs: any) =>
+export const getInitialStateFromInputs = (inputs: IInput[]) =>
   inputs.reduce((obj: any, c: any) => ({ ...obj, [c.source]: '' }), {})

@@ -2,7 +2,7 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack'
 import { Button } from 'react-native'
 import * as React from 'react'
 import { RootStackParamList } from '../../types'
-import { Form, getInitialStateFromInputs } from '../components/Form'
+import { Form, getInitialStateFromInputs, IInput } from '../components/Form'
 import { Layout } from '../components/Layout'
 
 export const CreateAccountVerifyScreen = ({
@@ -17,11 +17,9 @@ export const CreateAccountVerifyScreen = ({
   )
 }
 
-const INPUTS = [
+const INPUTS: IInput[] = [
   {
     source: 'code',
-    type: 'text',
-    label: 'Verify Code',
     placeholder: 'Verify Code',
   },
 ]
