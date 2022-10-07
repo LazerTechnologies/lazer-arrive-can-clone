@@ -1,0 +1,27 @@
+landing screen
+  create account
+  sign in
+
+sign in screen
+  forgot password popover
+
+create account
+  starts with eula
+  email screen
+  password screen
+  verify screen
+
+onboarding screen
+  3 steps with image, heading description.etc
+
+
+logged in screen
+  tab navigator
+    home
+      pretty empty
+    travellers
+      add a traveller screen
+    resources
+      a bunch of links
+    settings
+      pretty standard settings screen
