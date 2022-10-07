@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>arriveLazer</string>
+	<string>DepartCAN</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -37,8 +37,29 @@
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>NotoSans-Black.ttf</string>
+		<string>NotoSans-BlackItalic.ttf</string>
+		<string>NotoSans-Bold.ttf</string>
+		<string>NotoSans-BoldItalic.ttf</string>
+		<string>NotoSans-ExtraBold.ttf</string>
+		<string>NotoSans-ExtraBoldItalic.ttf</string>
+		<string>NotoSans-ExtraLight.ttf</string>
+		<string>NotoSans-ExtraLightItalic.ttf</string>
+		<string>NotoSans-Italic.ttf</string>
+		<string>NotoSans-Light.ttf</string>
+		<string>NotoSans-LightItalic.ttf</string>
+		<string>NotoSans-Medium.ttf</string>
+		<string>NotoSans-MediumItalic.ttf</string>
+		<string>NotoSans-Regular.ttf</string>
+		<string>NotoSans-SemiBold.ttf</string>
+		<string>NotoSans-SemiBoldItalic.ttf</string>
+		<string>NotoSans-Thin.ttf</string>
+		<string>NotoSans-ThinItalic.ttf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
+	<string>LaunchScreen.storyboard</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

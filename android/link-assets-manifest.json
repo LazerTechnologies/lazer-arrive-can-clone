@@ -1,0 +1,77 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/NotoSans-Black.ttf",
+      "sha1": "01327659769c00a0762d9b55fe01273439ad1588"
+    },
+    {
+      "path": "assets/fonts/NotoSans-BlackItalic.ttf",
+      "sha1": "b2f22869d954f92315c85e642fc468560da37b98"
+    },
+    {
+      "path": "assets/fonts/NotoSans-Bold.ttf",
+      "sha1": "20f80dbd99b857c66796321d3f596400d1334ca7"
+    },
+    {
+      "path": "assets/fonts/NotoSans-BoldItalic.ttf",
+      "sha1": "e2104bab749433d65a710c2181bb137b65346c17"
+    },
+    {
+      "path": "assets/fonts/NotoSans-ExtraBold.ttf",
+      "sha1": "c07b10e56e57fa69daf53c31ec2532ec5d67976c"
+    },
+    {
+      "path": "assets/fonts/NotoSans-ExtraBoldItalic.ttf",
+      "sha1": "a13df5f61dc78a7c9f9a6f334cf39e7586eb74ce"
+    },
+    {
+      "path": "assets/fonts/NotoSans-ExtraLight.ttf",
+      "sha1": "f7d88838a7901449d3a16369adcd2978baa73949"
+    },
+    {
+      "path": "assets/fonts/NotoSans-ExtraLightItalic.ttf",
+      "sha1": "6ea8b07ff9ac724ec6c8236ebc880c72bf6e41c4"
+    },
+    {
+      "path": "assets/fonts/NotoSans-Italic.ttf",
+      "sha1": "4fa74443f61703f22d749de24dbfbf1391753e83"
+    },
+    {
+      "path": "assets/fonts/NotoSans-Light.ttf",
+      "sha1": "44a34cb40dabf346c9af89289b7e296b3094d341"
+    },
+    {
+      "path": "assets/fonts/NotoSans-LightItalic.ttf",
+      "sha1": "b7afdb456cbb7d09e760e73ccb4e76ef62438c37"
+    },
+    {
+      "path": "assets/fonts/NotoSans-Medium.ttf",
+      "sha1": "24d2fbcedc876231b51ea8c096f21883d27ece5a"
+    },
+    {
+      "path": "assets/fonts/NotoSans-MediumItalic.ttf",
+      "sha1": "cde77370c060af33fbd81473c31f7000d0db0513"
+    },
+    {
+      "path": "assets/fonts/NotoSans-Regular.ttf",
+      "sha1": "6af0b309f2f2af25bfd0f901ed24bd0527c2cbf4"
+    },
+    {
+      "path": "assets/fonts/NotoSans-SemiBold.ttf",
+      "sha1": "b85778134956f02b1c3c20617f14ae29b4680e12"
+    },
+    {
+      "path": "assets/fonts/NotoSans-SemiBoldItalic.ttf",
+      "sha1": "544b3e8103f2e9fa1f4d54296c286ddf7ea1e291"
+    },
+    {
+      "path": "assets/fonts/NotoSans-Thin.ttf",
+      "sha1": "cc34e9728dae4b831a9491048792283fb513bd25"
+    },
+    {
+      "path": "assets/fonts/NotoSans-ThinItalic.ttf",
+      "sha1": "a8d0561077c60beb9238a84647f9bce553b4303d"
+    }
+  ]
+}
