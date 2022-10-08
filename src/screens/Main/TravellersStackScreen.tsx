@@ -1,6 +1,6 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import * as React from 'react'
-import { Button } from 'react-native'
+import { Button } from '../../components/Button'
 import { Form, getInitialStateFromInputs, IInput } from '../../components/Form'
 import { Layout } from '../../components/Layout'
 import { createTraveller } from '../../utils/firestore'
@@ -23,8 +23,13 @@ const TravellersScreen = () => {
   }
   return (
     <Layout>
-      <Form inputs={INPUTS} state={state} setState={setState} />
-      <Button title="Submit" onPress={onSubmit} />
+      <Form
+        onSubmit={onSubmit}
+        inputs={INPUTS}
+        state={state}
+        setState={setState}
+      />
+      <Button onPress={onSubmit}>Submit</Button>
     </Layout>
   )
 }

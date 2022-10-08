@@ -9,10 +9,17 @@ export const CreateAccountVerifyScreen = ({
   navigation,
 }: NativeStackScreenProps<RootStackParamList, 'CreateAccountVerify'>) => {
   const [state, setState] = React.useState(getInitialStateFromInputs(INPUTS))
+  const onSubmit = () => navigation.navigate('Main')
   return (
     <Layout isDark>
-      <Form inputs={INPUTS} state={state} setState={setState} />
-      <Button title="Next" onPress={() => navigation.navigate('Main')} />
+      <Form
+        onSubmit={onSubmit}
+        isDark
+        inputs={INPUTS}
+        state={state}
+        setState={setState}
+      />
+      <Button title="Next" onPress={onSubmit} />
     </Layout>
   )
 }

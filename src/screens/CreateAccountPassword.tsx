@@ -1,10 +1,12 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
-import { Button } from 'react-native'
+import { Button } from '../components/Button'
 import * as React from 'react'
 import { RootStackParamList } from '../../types'
 import { Form, getInitialStateFromInputs, IInput } from '../components/Form'
 import { Layout } from '../components/Layout'
 import { createUser } from '../utils/auth'
+import { Text, View } from 'react-native'
+import tw from '../utils/tw'
 
 export const CreateAccountPasswordScreen = ({
   navigation,
@@ -17,10 +19,26 @@ export const CreateAccountPasswordScreen = ({
       navigation.navigate('CreateAccountVerify')
     })
   }
+  const onSignIn = () => navigation.navigate('Login')
   return (
     <Layout isDark>
-      <Form inputs={INPUTS} state={state} setState={setState} />
-      <Button title="Submit" onPress={onSubmit} />
+      <Form
+        onSubmit={onSubmit}
+        isDark
+        inputs={INPUTS}
+        state={state}
+        setState={setState}
+      />
+      <View style={tw`mt-30`}>
+        <Button onPress={onSubmit}>Continue</Button>
+
+        <Text style={tw`text-center text-white mt-6`}>
+          Already have an account?{' '}
+          <Text style={tw`underline font-bold`} onPress={onSignIn}>
+            Sign in.
+          </Text>
+        </Text>
+      </View>
     </Layout>
   )
 }
