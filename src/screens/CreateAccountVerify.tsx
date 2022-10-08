@@ -1,7 +1,7 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
-import { Button } from 'react-native'
 import * as React from 'react'
 import { RootStackParamList } from '../../types'
+import { Button } from '../components/Button'
 import { Form, getInitialStateFromInputs, IInput } from '../components/Form'
 import { Layout } from '../components/Layout'
 
@@ -19,7 +19,7 @@ export const CreateAccountVerifyScreen = ({
         state={state}
         setState={setState}
       />
-      <Button title="Next" onPress={onSubmit} />
+      <Button onPress={onSubmit}>Verify</Button>
     </Layout>
   )
 }

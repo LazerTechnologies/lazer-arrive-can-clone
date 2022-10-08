@@ -50,8 +50,8 @@ export const Form = ({
             style={{
               height: 40,
               backgroundColor: 'white',
-              fontSize: 20,
-              padding: 5,
+              fontSize: 16,
+              paddingHorizontal: 12,
               marginVertical: 5,
               borderRadius: 3,
               width: '100%',

@@ -34,11 +34,15 @@ export const Button = ({
       <View>
         <Text
           style={[
-            tw`text-center`,
+            tw`text-center text-background`,
             variant === 'link'
               ? tw`text-[#ccc] underline`
-              : color === 'white' && variant === 'contained'
-              ? tw`text-background`
+              : variant === 'contained'
+              ? color === 'white'
+                ? tw`text-background`
+                : tw`text-white`
+              : variant === 'text'
+              ? null
               : tw`text-white`,
             textStyle,
           ]}>

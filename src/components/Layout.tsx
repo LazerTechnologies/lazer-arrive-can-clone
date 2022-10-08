@@ -11,7 +11,7 @@ export const Layout = ({
   style?: any
   isDark?: boolean
   isSafe?: boolean
-  children: React.ReactNode
+  children?: React.ReactNode
 }) => {
   const Component = isSafe ? SafeAreaView : View
   return (

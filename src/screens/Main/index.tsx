@@ -9,7 +9,8 @@ const Tab = createBottomTabNavigator()
 
 export const MainScreen = () => {
   return (
-    <Tab.Navigator screenOptions={{ headerShown: false }}>
+    <Tab.Navigator
+      screenOptions={{ headerShown: false, tabBarActiveTintColor: '#4784AB' }}>
       <Tab.Screen name="Home" component={HomeStackScreen} />
       <Tab.Screen name="Travellers" component={TravellersStackScreen} />
       <Tab.Screen name="Resources" component={ResourcesStackScreen} />

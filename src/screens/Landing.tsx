@@ -5,16 +5,17 @@ import { useUser } from '../utils/auth'
 import { Layout } from '../components/Layout'
 import { Button } from '../components/Button'
 import tw from '../utils/tw'
-import { View } from 'react-native'
+import { useIsFocused } from '@react-navigation/native'
 
 export const LandingScreen = ({
   navigation,
 }: NativeStackScreenProps<RootStackParamList, 'Landing'>) => {
   const user = useUser()
+  const isFocused = useIsFocused()
 
   React.useEffect(() => {
-    if (user) navigation.navigate('Main')
-  }, [user])
+    if (user && isFocused) navigation.navigate('Main')
+  }, [user, isFocused])
 
   return (
     <Layout isSafe isDark style={tw`justify-end`}>

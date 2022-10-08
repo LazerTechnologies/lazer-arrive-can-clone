@@ -16,12 +16,15 @@ export const CreateAccountPasswordScreen = ({
   const onSubmit = () => {
     // TODO: confirm that passwords are the same
     createUser(route.params.email, state.password).then(() => {
-      navigation.navigate('CreateAccountVerify')
+      navigation.navigate('Main')
     })
   }
   const onSignIn = () => navigation.navigate('Login')
   return (
     <Layout isDark>
+      <Text style={tw`text-white text-2xl text-center font-semibold mb-6`}>
+        Choose a password
+      </Text>
       <Form
         onSubmit={onSubmit}
         isDark

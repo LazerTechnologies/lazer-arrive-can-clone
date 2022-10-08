@@ -1,16 +1,24 @@
 import * as React from 'react'
-import { Button, Text } from 'react-native'
+import { StatusBar, Text, View } from 'react-native'
 import {
   createNativeStackNavigator,
   NativeStackScreenProps,
 } from '@react-navigation/native-stack'
 import { Layout } from '../../components/Layout'
 import { ParamListBase } from '@react-navigation/routers'
+import tw from '../../utils/tw'
+import { Button } from '../../components/Button'
 
 const HomeStack = createNativeStackNavigator()
 
 export const HomeStackScreen = () => (
-  <HomeStack.Navigator screenOptions={{ headerShown: false }}>
+  <HomeStack.Navigator
+    screenOptions={{
+      headerBackground: () => <View style={tw`bg-background w-full h-full`} />,
+      headerTitleStyle: tw`text-white`,
+      headerTitleAlign: 'left',
+      headerTitle: 'Home',
+    }}>
     <HomeStack.Screen name="HomeRootScreen" component={HomeRootScreen} />
   </HomeStack.Navigator>
 )
@@ -25,10 +33,10 @@ const HomeRootScreen = ({
   navigation,
 }: NativeStackScreenProps<ParamListBase, 'HomeRootScreen'>) => (
   <Layout>
-    <Text>Home screen</Text>
-    <Button
-      title="Go to Details"
-      onPress={() => navigation.navigate('HomeRootScreen')}
-    />
+    <StatusBar barStyle="light-content" />
+    <Text style={tw`mb-4 text-center text-2xl font-semibold`}>
+      Start your advance CBSA Declaration
+    </Text>
+    <Button>Start</Button>
   </Layout>
 )
