@@ -18,7 +18,7 @@ export const CreateAccountPasswordScreen = ({
     })
   }
   return (
-    <Layout>
+    <Layout isDark>
       <Form inputs={INPUTS} state={state} setState={setState} />
       <Button title="Submit" onPress={onSubmit} />
     </Layout>

@@ -4,6 +4,7 @@ import * as React from 'react'
 import { RootStackParamList } from '../../types'
 import { Form, getInitialStateFromInputs, IInput } from '../components/Form'
 import { Layout } from '../components/Layout'
+import { Text } from 'react-native-paper'
 
 export const CreateAccountEmailScreen = ({
   navigation,
@@ -14,7 +15,10 @@ export const CreateAccountEmailScreen = ({
     navigation.navigate('CreateAccountPassword', { email: state.email })
   }
   return (
-    <Layout>
+    <Layout isDark>
+      <Text variant="titleLarge" style={{ fontWeight: '600' }}>
+        What's your email address?
+      </Text>
       <Form inputs={INPUTS} state={state} setState={setState} />
       <Button title="Submit" onPress={onSubmit} />
     </Layout>

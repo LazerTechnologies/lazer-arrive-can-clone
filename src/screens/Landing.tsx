@@ -16,7 +16,7 @@ export const LandingScreen = ({
     }
   }, [user])
   return (
-    <Layout>
+    <Layout isDark>
       <SafeAreaView
         style={{ flex: 1, width: '100%', justifyContent: 'flex-end' }}>
         <Button
@@ -24,7 +24,7 @@ export const LandingScreen = ({
           textColor="#245067"
           mode="contained"
           onPress={() => navigation.navigate('CreateAccountEmail')}>
-          Create Account
+          Create account
         </Button>
         <Button
           textColor="white"
