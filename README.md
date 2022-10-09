@@ -1,14 +1,14 @@
-# ArriveCAN Case Study - By Lazer
+# ArriveCAN Case Study - By [Lazer](https://www.lazertechnologies.com/)
 
 ## What is ArriveCAN?
-The ArriveCAN app is a mobile and web app that was created by the Canadian federal government to offer the Advance CBSA Declaration feature. This, now optional, feature is for travellers who want to save time at certain Canadian international airports by providing their customs and immigration declaration to the CBSA in advance.
+The [ArriveCAN](https://www.canada.ca/en/border-services-agency/services/arrivecan.html) app is a mobile and web app that was created by the Canadian federal government to offer the Advance CBSA Declaration feature. This, now optional, feature is for travellers who want to save time at certain Canadian international airports by providing their customs and immigration declaration to the CBSA in advance.
 
 The goal of the app was to change and improve the border experience for the better.
 
 ## Purpose for building a clone
-As many have learned, a recent Globe and Mail analysis revealed that the total federal spending for the ArriveCAN app is on track to reach over $54 million this year, and many people are upset about just how much the federal government is spending.
+As many have learned, a recent [Globe and Mail analysis](https://www.theglobeandmail.com/politics/article-arrivecan-app-spending-government/) revealed that the total federal spending for the ArriveCAN app is on track to reach over $54 million this year, and many people are upset about just how much the federal government is spending.
 
-Having built over 100+ different apps at Lazer for some of the most exciting companies in the world, it was shocking for us to see the total amount of capital that was spent to design, create, launch, and maintain the ArriveCAN app. We understand that building technology at a federal level for the entire country and for such crucial areas is no easy task - especially to do this successfully in the most seamless manner with so many different stakeholders involved. However the true cost to implement this so shouldn't have been this high, it should have been more efficient.
+Having built over [100+ different apps at Lazer](https://www.lazertechnologies.com/clients) for some of the most exciting companies in the world, it was shocking for us to see the total amount of capital that was spent to design, create, launch, and maintain the ArriveCAN app. We understand that building technology at a federal level for the entire country and for such crucial areas is no easy task - especially to do this successfully in the most seamless manner with so many different stakeholders involved. However the true cost to implement this so shouldn't have been this high, it should have been more efficient.
 
 With this context and initial frustration, we wanted to shed light into how quickly an app like this could be made and how capital efficient it could be to do so, if the right parties were engaged in the process. The best way we believed we could do this was by providing insight into this topic and by actually showing that it could be done. That's why we decided to make a simple clone version of the ArriveCAN app.
 
