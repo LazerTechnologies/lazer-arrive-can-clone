@@ -29,7 +29,9 @@ export const LoginScreen = ({
         state={state}
         setState={setState}
       />
-      <Button onPress={onSubmit}>Sign in</Button>
+      <Button color="secondary" onPress={onSubmit}>
+        Sign in
+      </Button>
       <Button variant="link" style={tw`mt-3`}>
         Forgot password?
       </Button>

@@ -77,6 +77,13 @@ const TravellersHomeScreen = ({ navigation }: any) => {
                   </View>
                 </View>
               ))}
+
+              <Text style={tw`my-4 font-semibold text-center`}>
+                Get started on your forms to enter Canada
+              </Text>
+              <Button onPress={() => navigation.navigate('CBSAConsent')}>
+                Start
+              </Button>
             </>
           ) : (
             <>

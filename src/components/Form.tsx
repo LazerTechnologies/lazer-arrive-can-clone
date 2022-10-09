@@ -43,7 +43,6 @@ export const Form = ({
           if (i < inputs.length - 1) {
             ref.current[i + 1]?.focus()
           } else {
-            // TODO: callstack overflow
             onSubmit?.()
           }
         }
@@ -57,9 +56,9 @@ export const Form = ({
           value: choice,
         }))
         return (
-          <View key={input.source} style={[tw`mb-3`, { zIndex: 10 - i }]}>
+          <View key={input.source} style={[tw`mb-4`, { zIndex: 10 - i }]}>
             {input.placeholder && (
-              <Text style={[tw`font-bold`, isDark ? tw`text-white` : tw``]}>
+              <Text style={[tw`font-semibold`, isDark ? tw`text-white` : tw``]}>
                 {input.placeholder}
               </Text>
             )}
@@ -91,7 +90,7 @@ export const Form = ({
                   setState((s: any) => ({ ...s, [input.source]: c(choices) }))
                 }}
                 listMode="SCROLLVIEW"
-                style={tw`mt-3 border-[#ccc] rounded min-h-0 py-3`}
+                style={tw`mt-2 border-[#ccc] rounded min-h-0 py-3`}
                 items={choices!}
                 dropDownContainerStyle={[tw`border-[#ccc]`, { marginTop: 12 }]}
               />

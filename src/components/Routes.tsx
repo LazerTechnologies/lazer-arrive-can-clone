@@ -53,12 +53,18 @@ const Routes = () => (
       <Stack.Screen
         name="CBSAConfirm"
         component={CBSAConfirm}
-        options={{ ...headerScreenOptions, headerTitle: '' }}
+        options={{
+          ...headerScreenOptions,
+          headerTitle: 'Advance CBSA Declaration',
+        }}
       />
       <Stack.Screen
         name="CBSAAcknowledge"
         component={CBSAAcknowledge}
-        options={{ ...headerScreenOptions, headerTitle: '' }}
+        options={{
+          ...headerScreenOptions,
+          headerTitle: 'Send your declaration to the CBSA',
+        }}
       />
       {STEPS.map((step, index) => (
         <Stack.Screen
@@ -70,8 +76,10 @@ const Routes = () => (
           initialParams={{
             // @ts-ignore
             inputs: step.inputs,
+            infos: step.infos,
             index: index + 1,
             heading: step.heading,
+            description: step.description,
           }}
         />
       ))}

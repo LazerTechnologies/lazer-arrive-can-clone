@@ -19,7 +19,9 @@ export const CreateAccountVerifyScreen = ({
         state={state}
         setState={setState}
       />
-      <Button onPress={onSubmit}>Verify</Button>
+      <Button color="secondary" onPress={onSubmit}>
+        Verify
+      </Button>
     </Layout>
   )
 }

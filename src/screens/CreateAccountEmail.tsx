@@ -29,7 +29,9 @@ export const CreateAccountEmailScreen = ({
         setState={setState}
       />
       <View style={tw`mt-30`}>
-        <Button onPress={onSubmit}>Continue</Button>
+        <Button color="secondary" onPress={onSubmit}>
+          Continue
+        </Button>
 
         <Text style={tw`text-center text-white mt-6`}>
           Already have an account?{' '}

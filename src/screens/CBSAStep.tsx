@@ -7,7 +7,7 @@ import { Form, getInitialStateFromInputs, IInput } from '../components/Form'
 import tw from '../utils/tw'
 
 export const CBSAStep = ({ navigation, route }: any) => {
-  const { inputs, index, heading } = route.params
+  const { inputs, index, infos, heading, description } = route.params
   const [state, setState] = React.useState({
     ...getInitialStateFromInputs(inputs),
   })
@@ -19,10 +19,16 @@ export const CBSAStep = ({ navigation, route }: any) => {
     }
   }
   return (
-    <View style={tw`flex-1 pt-3 flex justify-between`}>
+    <View style={tw`flex-1 pt-6 flex justify-between`}>
       <StatusBar barStyle="light-content" />
       <ScrollView contentContainerStyle={tw`px-4`}>
-        <Text style={tw`font-bold text-xl`}>{heading}</Text>
+        <Text style={tw`font-medium text-xl`}>{heading}</Text>
+        {infos?.map((info: any) => (
+          <InfoView style={tw`my-5`}>
+            <Text>{info.heading}</Text>
+          </InfoView>
+        ))}
+        <Text style={tw`mb-5`}>{description}</Text>
         <Form
           onSubmit={onSubmit}
           inputs={inputs}
@@ -40,15 +46,49 @@ export const CBSAStep = ({ navigation, route }: any) => {
   )
 }
 
-export const STEPS: { inputs: IInput[]; title: string; heading: string }[] = [
+const InfoView = ({
+  children,
+  style,
+}: {
+  style?: any
+  children: React.ReactNode
+}) => {
+  return (
+    <View
+      style={[tw`bg-[#EBF3F6] border border-[#B8C8CF] rounded-lg p-4`, style]}>
+      {children}
+    </View>
+  )
+}
+
+export const STEPS: {
+  inputs: IInput[]
+  title: string
+  heading: string
+  description?: string
+  infos?: { heading: string; description?: string }[]
+}[] = [
   {
     title: 'Arrival airport',
     heading: 'Select your arrival airport',
+    description:
+      'Enter the details of your planned arrival to Canada within the next 72 hours (3 days).  If your trip is not within the next 72 hours, come back and complete your submission later.',
+    infos: [
+      {
+        heading:
+          'Please note: Advance CBSA Declaration is only available for air entry at select airports.',
+      },
+    ],
     inputs: [
       {
         source: 'arrivalAirport',
         type: 'select',
-        choices: ['Passport'],
+        choices: [
+          'Montreal - Trudeau International Airport (YUL)',
+          'Toronto Pearson International Airport - Terminal 1 (YYZ)',
+          'Toronto Pearson International Airport - Terminal 3 (YYZ)',
+          'Vancouver International Airport YVR',
+        ],
         placeholder: 'Arrival airport',
       },
       {
@@ -95,6 +135,13 @@ export const STEPS: { inputs: IInput[]; title: string; heading: string }[] = [
   {
     title: 'Country/territory of residence',
     heading: 'Where do you live?',
+    infos: [
+      {
+        heading: 'Coming to Canada to work or study?',
+        description:
+          'If this is your first entry to Canada for work or study purposes, enter your foreign residence.  Temporary Residents of Canada with a valid work or study permit must indicate their Canadian residence.',
+      },
+    ],
     inputs: [
       { source: 'residence', type: 'radio', choices: ['United States'] },
     ],
@@ -102,18 +149,45 @@ export const STEPS: { inputs: IInput[]; title: string; heading: string }[] = [
   {
     title: 'Duration of absence from Canada',
     heading: 'How long have you been away from Canada?',
+    infos: [
+      {
+        heading: 'How to calculate your duration of absence from Canada',
+        description:
+          'Less than 24 hours: A duration of absense from Canada less than 24 hours.  24 to less than 48 hours: A minimum absence of 24 hours from Canada is required. For example, if you left at 19:00 on Friday the 15th, you may return no earlier than 19:00 on Saturday the 16th to claim the exemption. 48 hours to less than 7 days: A minimum absense of 48 hours from Canada is required. For example, if you left at 19:00 on Friday the 15th, you may return no earlier than 19:00 on Sunday the 17th to claim the exemption. 7 days or more: A minimum absence of seven days is required. When calculating the number of days you have been absent, exclude the day you left Canada but include the day you returned. For example, we consider you to have been absent seven days if you left Canada on Friday the 7th and return no earlier than Friday the 14th to claim the exemption.',
+      },
+    ],
     inputs: [{ source: 'duration', type: 'radio', choices: ['United States'] }],
   },
   {
     title: 'Personal exemptions',
     heading:
       'Do you exceed your personal exemptions including the total value of goods or the allowable quantity of alcohol/tobacco',
+    infos: [
+      {
+        heading: 'Absence of less than 24 hours',
+        description:
+          'There are no personal exemptions for travellers absent for less than 24 hours',
+      },
+      {
+        heading:
+          'Refer to alcoholic beverage and tobacco products exemption limits',
+        description:
+          'Based on your stated duration of absence you are not entitled to a duty free allowance of alcohol and tobacco products.',
+      },
+    ],
     inputs: [{ source: 'exemptions', type: 'boolean' }],
   },
   {
     title: 'Firearms/Weapons',
     heading:
       'I am/we are bringing into Canada: Firearms or other weapons (e.g. switchblades, Mace or pepper spray)',
+    infos: [
+      {
+        heading: 'Additional details',
+        description:
+          'You must declare all weapons and firearms at the CBSA port of entry when you enter Canada. If not, the goods may be seized and you could face prosecution.',
+      },
+    ],
     inputs: [{ source: 'firearms', type: 'boolean' }],
   },
   {
@@ -126,12 +200,38 @@ export const STEPS: { inputs: IInput[]; title: string; heading: string }[] = [
     title: 'Agricultural Products',
     heading:
       'I am/we are bringing into Canada: Raw or cooked meat, fish, seafood, eggs, dairy products, fruits, vegetables, seeds, nuts flowers, insects, bulbs, plants, wood, live animals or any other animal or plant parts or their derivatives.',
+    infos: [
+      {
+        heading: 'Additional details',
+        description:
+          "You must declare all food, plants, animal and related products that you import into Canada.  Failure to do so can result in your good being confiscated or you may be subject to a fine or prosecution. Importing a single piece of fruit or meat into Canada can be harmful to our ecosystems. Various food, plant and animal products are restricted or prohibited entry because they can harbour invasive species, foreign animal diseases and plant pests. These things can cause irreperable harm to Canada's crops, livestock, environment and threaten Canadas economy.  Some of these items are prohibited or regulated because they can carry foreign animal and plant pests and diseases.",
+      },
+    ],
     inputs: [{ source: 'agriculture', type: 'boolean' }],
+  },
+  {
+    title: 'Unaccompanied Goods',
+    heading: 'I/we have: Unaccompanied goods (excluding your checked baggage)',
+    infos: [
+      {
+        heading: 'Additional details',
+        description:
+          'If you have acquired goods outside of Canada, and have had these goods sent home with a courier or postal company, you have 40 days from the date of your return to Canada to claim these goods.  The goods mailed to Canada must qualify for the 7-day personal exemption.  The shipment must not contain alcohol or tabacco products.  Upon arrival, you must tell a border services officer that you have shipped goods to follow and request Form BSF192, Personal Exemption CBSA Declaration. Be sure to retain your copy of Form BSF192 until you have received and accounted for all your goods.',
+      },
+    ],
+    inputs: [{ source: 'unaccompaniedGoods', type: 'boolean' }],
   },
   {
     title: 'Currency',
     heading:
       'I am/we are bringing into Canada: Currency and/or monetary instruments totally CAN$10,000 or more.',
+    infos: [
+      {
+        heading: 'Additional details',
+        description:
+          'There are no restrictions on the amount of money you can bring into or take out of Canada, nor is it illegal to do so.  However, any time you cross the border, you must declare any currency or monetary instruments you have in your possession that are valued at CAN$10,000 or more.  The CAN$10,000 can be any combination of Canadian or foreign currency and monetary instruments, such as stocks, bonds, bank draft, cheques and travellers cheques.  This requirement applies to you whether you are travelling on business, pleasure or if you are carrying money on behalf of someone else.',
+      },
+    ],
     inputs: [{ source: 'currency', type: 'boolean' }],
   },
   {
@@ -140,9 +240,21 @@ export const STEPS: { inputs: IInput[]; title: string; heading: string }[] = [
     inputs: [{ source: 'farm', type: 'boolean' }],
   },
   {
+    title: 'Ebola',
+    heading: 'In the past 21 days, have you ever been to Uganda?',
+    inputs: [{ source: 'ebola', type: 'boolean' }],
+  },
+  {
     title: 'Cannabis',
     heading:
       'I am/we are bringing into Canada: Are you or any travellers in your group bringing into Canada cannabis or goods containing cannabis?',
+    infos: [
+      {
+        heading: 'Additional details',
+        description:
+          'If you have cannabis with you in any form, you must declare it to the Canada Border Services Agency.  Not declaring cannabis in your possession at the Canadian border could also lead to arrest and prosecution.  Transporting cannabis across the border in any form - including any oils containing THC or cannabidiol (CBD) - without a permit or exemption authorized by Health Canada is a serious criminal offence subject to arrest and prosecution, despite the legalization of cannabis in Canada.  The prohibition applies regardless of the amount of cannabis you have with you, whether you hold a medical document authorizing the use of cannabis for medical purposes, or whether you are travelling from an area with legalized or decriminalized cannabis.',
+      },
+    ],
     inputs: [{ source: 'cannabis', type: 'boolean' }],
   },
 ]

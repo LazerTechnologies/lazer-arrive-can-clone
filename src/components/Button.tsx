@@ -10,7 +10,7 @@ export const Button = ({
   style,
   textStyle,
 }: {
-  color?: 'default' | 'white'
+  color?: 'default' | 'white' | 'secondary'
   variant?: 'contained' | 'outlined' | 'text' | 'link'
   onPress?: () => void
   style?: any
@@ -25,6 +25,8 @@ export const Button = ({
         variant === 'contained'
           ? color === 'white'
             ? tw`bg-white`
+            : color === 'secondary'
+            ? tw`bg-secondary`
             : tw`bg-primary`
           : null,
         variant === 'outlined'
@@ -47,6 +49,8 @@ export const Button = ({
           variant === 'outlined'
             ? color === 'white'
               ? tw`text-white`
+              : color === 'secondary'
+              ? tw`text-secondary`
               : tw`text-primary`
             : null,
           variant === 'link' ? tw`text-[#ccc] underline` : null,
