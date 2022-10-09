@@ -100,6 +100,7 @@ export const Form = ({
               <View style={[tw`flex-row mt-3`]}>
                 {['NO', 'YES'].map((choice: string, i) => (
                   <Button
+                    key={i}
                     style={[i === 0 && tw`mr-2`, tw`w-14`]}
                     variant={
                       (state[input.source] && choice === 'YES') ||
@@ -121,6 +122,7 @@ export const Form = ({
               <View style={[tw`flex-row`]}>
                 {['YYYY', 'MM', 'DD'].map((part: string, i) => (
                   <TextInput
+                    key={i}
                     value={state[input.source + part]}
                     placeholder={part}
                     keyboardType="numeric"

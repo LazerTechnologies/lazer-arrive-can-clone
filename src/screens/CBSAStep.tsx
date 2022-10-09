@@ -28,8 +28,8 @@ export const CBSAStep = ({ navigation, route }: any) => {
       <StatusBar barStyle="light-content" />
       <ScrollView contentContainerStyle={tw`px-4`}>
         <Text style={tw`font-medium text-xl leading-1.2 mb-3`}>{heading}</Text>
-        {infos?.map((info: any) => (
-          <InfoView style={tw`mb-5`}>
+        {infos?.map((info: any, i: number) => (
+          <InfoView key={i} style={tw`mb-5`}>
             <Text>{info.heading}</Text>
           </InfoView>
         ))}
