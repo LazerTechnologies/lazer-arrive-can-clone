@@ -63,24 +63,26 @@ export const Form = ({
               </Text>
             )}
             {input.type === 'radio' ? (
-              <>
+              <View style={tw`mt-2`}>
                 {input.choices?.map((choice: string) => (
                   <TouchableOpacity
                     key={choice}
                     onPress={() =>
                       setState((s: any) => ({ ...s, [input.source]: choice }))
                     }
-                    style={tw`flex-row items-center py-3`}>
+                    style={tw`flex-row items-center py-2`}>
                     <View
                       style={[
-                        tw`rounded-full border w-3 h-3 mr-3 border-2`,
-                        state[input.source] === choice ? tw`bg-black` : tw``,
+                        tw`rounded-full border border-secondary w-4 h-4 mr-3`,
+                        state[input.source] === choice
+                          ? tw`bg-secondary`
+                          : tw``,
                       ]}
                     />
                     <Text>{choice}</Text>
                   </TouchableOpacity>
                 ))}
-              </>
+              </View>
             ) : input.type === 'select' || input.type === 'selectCountry' ? (
               <DropDownPicker
                 open={open}
@@ -98,7 +100,7 @@ export const Form = ({
               <View style={[tw`flex-row mt-3`]}>
                 {['NO', 'YES'].map((choice: string, i) => (
                   <Button
-                    style={[i === 0 && tw`mr-2`, tw`flex-1`]}
+                    style={[i === 0 && tw`mr-2`, tw`w-14`]}
                     variant={
                       (state[input.source] && choice === 'YES') ||
                       (!state[input.source] && choice === 'NO')

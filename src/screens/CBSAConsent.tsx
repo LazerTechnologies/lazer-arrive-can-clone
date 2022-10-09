@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { ScrollView, StatusBar, Text, View } from 'react-native'
-import { SafeAreaView } from 'react-native-safe-area-context'
-import { Button } from '../components/Button'
+import { ProgressFooter } from '../components/ProgressFooter'
 import tw from '../utils/tw'
 
 export const CBSAConsent = ({ navigation, route }: any) => {
@@ -131,12 +130,7 @@ export const CBSAConsent = ({ navigation, route }: any) => {
           provide this information.
         </Text>
       </ScrollView>
-      <View style={tw`h-20 flex justify-start`}>
-        <View style={tw`h-1 bg-primary w-full`} />
-        <Button style={tw`mx-4 mt-3`} onPress={onSubmit}>
-          I consent
-        </Button>
-      </View>
+      <ProgressFooter value={5} submitLabel="I consent" onSubmit={onSubmit} />
     </View>
   )
 }

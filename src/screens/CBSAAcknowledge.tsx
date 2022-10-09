@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { ScrollView, StatusBar, Text, View } from 'react-native'
-import { SafeAreaView } from 'react-native-safe-area-context'
-import { Button } from '../components/Button'
+import { ProgressFooter } from '../components/ProgressFooter'
 import tw from '../utils/tw'
 
 export const CBSAAcknowledge = ({ navigation }: any) => {
@@ -48,12 +47,7 @@ export const CBSAAcknowledge = ({ navigation }: any) => {
           new declaration should it change.
         </Text>
       </ScrollView>
-      <SafeAreaView>
-        <View style={tw`h-1 bg-primary w-full`} />
-        <Button style={tw`mx-4 mt-3`} onPress={onSubmit}>
-          Submit
-        </Button>
-      </SafeAreaView>
+      <ProgressFooter submitLabel="Submit" onSubmit={onSubmit} />
     </View>
   )
 }

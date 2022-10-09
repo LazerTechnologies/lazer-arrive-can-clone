@@ -1,16 +1,21 @@
 import { CommonActions } from '@react-navigation/routers'
 import * as React from 'react'
 import { ScrollView, StatusBar, Text, View } from 'react-native'
-import { SafeAreaView } from 'react-native-safe-area-context'
-import { Button } from '../components/Button'
 import { Form, getInitialStateFromInputs, IInput } from '../components/Form'
 import tw from '../utils/tw'
+import { InfoView } from '../components/InfoView'
+import { ProgressFooter } from '../components/ProgressFooter'
 
 export const CBSAStep = ({ navigation, route }: any) => {
   const { inputs, index, infos, heading, description } = route.params
   const [state, setState] = React.useState({
     ...getInitialStateFromInputs(inputs),
   })
+  const onClose = () => {
+    navigation.dispatch(
+      CommonActions.reset({ index: 0, routes: [{ name: 'Main' }] }),
+    )
+  }
   const onSubmit = () => {
     if (index < STEPS.length - 1) {
       navigation.navigate(`CBSAStep${index + 1}`)
@@ -22,13 +27,13 @@ export const CBSAStep = ({ navigation, route }: any) => {
     <View style={tw`flex-1 pt-6 flex justify-between`}>
       <StatusBar barStyle="light-content" />
       <ScrollView contentContainerStyle={tw`px-4`}>
-        <Text style={tw`font-medium text-xl`}>{heading}</Text>
+        <Text style={tw`font-medium text-xl leading-1.2 mb-3`}>{heading}</Text>
         {infos?.map((info: any) => (
-          <InfoView style={tw`my-5`}>
+          <InfoView style={tw`mb-5`}>
             <Text>{info.heading}</Text>
           </InfoView>
         ))}
-        <Text style={tw`mb-5`}>{description}</Text>
+        {description && <Text style={tw`mb-5`}>{description}</Text>}
         <Form
           onSubmit={onSubmit}
           inputs={inputs}
@@ -36,27 +41,13 @@ export const CBSAStep = ({ navigation, route }: any) => {
           setState={setState}
         />
       </ScrollView>
-      <SafeAreaView>
-        <View style={tw`h-1 bg-primary w-full`} />
-        <Button style={tw`mx-4 mt-3`} onPress={onSubmit}>
-          Next
-        </Button>
-      </SafeAreaView>
-    </View>
-  )
-}
-
-const InfoView = ({
-  children,
-  style,
-}: {
-  style?: any
-  children: React.ReactNode
-}) => {
-  return (
-    <View
-      style={[tw`bg-[#EBF3F6] border border-[#B8C8CF] rounded-lg p-4`, style]}>
-      {children}
+      <ProgressFooter
+        value={(index / STEPS.length) * 100}
+        submitLabel="Next"
+        onSubmit={onSubmit}
+        backLabel="Exit"
+        onBack={onClose}
+      />
     </View>
   )
 }
@@ -101,18 +92,28 @@ export const STEPS: {
   {
     title: 'Contact information',
     heading: 'Enter your contact information',
+    description:
+      'Please provide your telephone number where you can be reached while in Canada.',
     inputs: [
       { source: 'phone', type: 'phone', placeholder: 'Phone number' },
-      { source: 'language', type: 'radio', choices: ['English', 'French'] },
+      {
+        source: 'language',
+        type: 'radio',
+        choices: ['English', 'French'],
+        placeholder:
+          'Which official language should we use to communicate with you?',
+      },
     ],
   },
   {
     title: 'Select/Add travellers',
     heading: 'Select travellers for this trip',
+    description:
+      'Use the checkbox beside the traveller entries below to select travellers from this trip.  You may also update the information or add new traveller entries to your list.',
     inputs: [
       {
-        source: 'phone',
-        type: 'phone',
+        source: 'travellers',
+        type: 'travellers',
         placeholder: 'Travellers',
       },
     ],
@@ -143,12 +144,18 @@ export const STEPS: {
       },
     ],
     inputs: [
-      { source: 'residence', type: 'radio', choices: ['United States'] },
+      {
+        source: 'residence',
+        type: 'radio',
+        choices: ['Canada', 'United States of America', 'Other'],
+      },
     ],
   },
   {
     title: 'Duration of absence from Canada',
     heading: 'How long have you been away from Canada?',
+    description:
+      'Your duration of absence from Canada determines what personal exemptions you are entitled to.',
     infos: [
       {
         heading: 'How to calculate your duration of absence from Canada',
@@ -156,12 +163,23 @@ export const STEPS: {
           'Less than 24 hours: A duration of absense from Canada less than 24 hours.  24 to less than 48 hours: A minimum absence of 24 hours from Canada is required. For example, if you left at 19:00 on Friday the 15th, you may return no earlier than 19:00 on Saturday the 16th to claim the exemption. 48 hours to less than 7 days: A minimum absense of 48 hours from Canada is required. For example, if you left at 19:00 on Friday the 15th, you may return no earlier than 19:00 on Sunday the 17th to claim the exemption. 7 days or more: A minimum absence of seven days is required. When calculating the number of days you have been absent, exclude the day you left Canada but include the day you returned. For example, we consider you to have been absent seven days if you left Canada on Friday the 7th and return no earlier than Friday the 14th to claim the exemption.',
       },
     ],
-    inputs: [{ source: 'duration', type: 'radio', choices: ['United States'] }],
+    inputs: [
+      {
+        source: 'duration',
+        type: 'radio',
+        choices: [
+          'Less than 24 hours',
+          '24 hours to less than 48 hours',
+          '48 hours to less than 7 days',
+          '7 days or more',
+        ],
+      },
+    ],
   },
   {
     title: 'Personal exemptions',
     heading:
-      'Do you exceed your personal exemptions including the total value of goods or the allowable quantity of alcohol/tobacco',
+      'Do you exceed your personal exemptions including the total value of goods or the allowable quantity of alcohol/tobacco?',
     infos: [
       {
         heading: 'Absence of less than 24 hours',
@@ -210,18 +228,6 @@ export const STEPS: {
     inputs: [{ source: 'agriculture', type: 'boolean' }],
   },
   {
-    title: 'Unaccompanied Goods',
-    heading: 'I/we have: Unaccompanied goods (excluding your checked baggage)',
-    infos: [
-      {
-        heading: 'Additional details',
-        description:
-          'If you have acquired goods outside of Canada, and have had these goods sent home with a courier or postal company, you have 40 days from the date of your return to Canada to claim these goods.  The goods mailed to Canada must qualify for the 7-day personal exemption.  The shipment must not contain alcohol or tabacco products.  Upon arrival, you must tell a border services officer that you have shipped goods to follow and request Form BSF192, Personal Exemption CBSA Declaration. Be sure to retain your copy of Form BSF192 until you have received and accounted for all your goods.',
-      },
-    ],
-    inputs: [{ source: 'unaccompaniedGoods', type: 'boolean' }],
-  },
-  {
     title: 'Currency',
     heading:
       'I am/we are bringing into Canada: Currency and/or monetary instruments totally CAN$10,000 or more.',
@@ -233,6 +239,18 @@ export const STEPS: {
       },
     ],
     inputs: [{ source: 'currency', type: 'boolean' }],
+  },
+  {
+    title: 'Unaccompanied Goods',
+    heading: 'I/we have: Unaccompanied goods (excluding your checked baggage)',
+    infos: [
+      {
+        heading: 'Additional details',
+        description:
+          'If you have acquired goods outside of Canada, and have had these goods sent home with a courier or postal company, you have 40 days from the date of your return to Canada to claim these goods.  The goods mailed to Canada must qualify for the 7-day personal exemption.  The shipment must not contain alcohol or tabacco products.  Upon arrival, you must tell a border services officer that you have shipped goods to follow and request Form BSF192, Personal Exemption CBSA Declaration. Be sure to retain your copy of Form BSF192 until you have received and accounted for all your goods.',
+      },
+    ],
+    inputs: [{ source: 'unaccompaniedGoods', type: 'boolean' }],
   },
   {
     title: 'Visited a Farm',
