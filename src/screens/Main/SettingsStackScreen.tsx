@@ -42,11 +42,11 @@ const SettingsRootScreen = ({
       variant="text"
       textStyle={tw`text-left font-semibold mt-2`}
       onPress={() =>
-        logout().then(() =>
+        logout().then(() => {
           navigation.dispatch(
             CommonActions.reset({ index: 0, routes: [{ name: 'Landing' }] }),
-          ),
-        )
+          )
+        })
       }>
       Sign out
     </Button>

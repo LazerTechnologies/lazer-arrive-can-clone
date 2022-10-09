@@ -9,3 +9,6 @@ export const updateTraveller = (travellerId: string, traveller: ITraveller) =>
 
 export const removeTraveller = (travellerId: string) =>
   firestore().collection('travellers').doc(travellerId).delete()
+
+export const getTravellers = (uid: string) =>
+  firestore().collection('travellers').where('userId', '==', uid).get()

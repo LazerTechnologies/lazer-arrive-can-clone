@@ -1,15 +1,28 @@
+import { CommonActions, TabActions } from '@react-navigation/routers'
 import * as React from 'react'
 import { ScrollView, StatusBar, Text, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { Button } from '../components/Button'
 import { Form, getInitialStateFromInputs, IInput } from '../components/Form'
+import { useUser } from '../utils/auth'
 import { createTraveller } from '../utils/firestore'
 import tw from '../utils/tw'
 
-export const TravellersFormScreen = () => {
-  const [state, setState] = React.useState(getInitialStateFromInputs(INPUTS))
+export const TravellersFormScreen = ({ navigation, route }: any) => {
+  const user = useUser()
+  const [state, setState] = React.useState({
+    ...getInitialStateFromInputs(INPUTS),
+    documentType: route.params.documentType,
+  })
   const onSubmit = () => {
-    createTraveller(state)
+    createTraveller({ ...state, userId: user?.uid }).then(() => {
+      navigation.dispatch(
+        CommonActions.reset({ index: 0, routes: [{ name: 'Main' }] }),
+      )
+      setTimeout(() => {
+        navigation.dispatch(TabActions.jumpTo('Travellers'))
+      }, 0)
+    })
   }
   return (
     <View style={tw`flex-1 pt-3 flex justify-between`}>

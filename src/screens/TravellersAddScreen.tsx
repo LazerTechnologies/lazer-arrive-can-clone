@@ -10,15 +10,19 @@ import tw from '../utils/tw'
 export const TravellersAddScreen = ({ navigation }: any) => {
   const [state, setState] = React.useState(getInitialStateFromInputs(INPUTS))
   const onSubmit = () => {
-    navigation.navigate('TravellersForm')
+    navigation.navigate('TravellersForm', { documentType: state.documentType })
   }
   return (
-    <View style={tw`flex-1 pt-3 flex justify-between`}>
+    <View style={tw`flex-1 pt-5 flex justify-between`}>
       <StatusBar barStyle="light-content" />
-      <ScrollView contentContainerStyle={tw`px-4`}>
+      <ScrollView contentContainerStyle={tw`px-5`}>
         <Text style={tw`font-bold text-xl`}>Add traveller profile</Text>
         <Text style={tw`mt-2 mb-4`}>
           Select the travel document being used to enter Canada
+        </Text>
+        <Text style={tw`mt-2 mb-4`}>
+          Advance Declaration can only be used with a Passport or Canadian PR
+          Card.
         </Text>
         <Form
           onSubmit={onSubmit}
@@ -41,6 +45,5 @@ const INPUTS: IInput[] = [
     source: 'documentType',
     type: 'radio',
     choices: ['Passport', 'Canadian Permanent Resident Card'],
-    placeholder: 'Document type',
   },
 ]

@@ -1,6 +1,15 @@
-import { View, TextInput, TextInputProps, Text } from 'react-native'
+import {
+  View,
+  TextInput,
+  TextInputProps,
+  Text,
+  TouchableOpacity,
+} from 'react-native'
 import * as React from 'react'
 import tw from '../utils/tw'
+import DropDownPicker from 'react-native-dropdown-picker'
+
+import { Button } from './Button'
 
 export interface IInput extends TextInputProps {
   source: string
@@ -27,48 +36,113 @@ export const Form = ({
 }) => {
   const ref = React.useRef<(TextInput | null)[]>([])
   return (
-    <View style={{ width: '100%' }}>
-      {inputs.map((input, i) => (
-        <View key={input.source} style={tw`mb-3`}>
-          <Text style={[tw`font-bold`, isDark ? tw`text-white` : tw``]}>
-            {input.placeholder}
-          </Text>
-          <TextInput
-            ref={el => (ref.current[i] = el)}
-            autoFocus={i === 0}
-            value={state[input.source]}
-            autoComplete={input.autoComplete}
-            secureTextEntry={input.secureTextEntry}
-            autoCapitalize={input.autoCapitalize}
-            autoCorrect={false}
-            onSubmitEditing={() => {
-              if (i < inputs.length - 1) {
-                ref.current[i + 1]?.focus()
-              } else {
-                onSubmit?.()
-              }
-            }}
-            keyboardType={input.keyboardType}
-            onChangeText={v =>
-              setState((s: any) => ({ ...s, [input.source]: v }))
-            }
-            style={[
-              {
-                height: 40,
-                backgroundColor: 'white',
-                fontSize: 16,
-                paddingHorizontal: 12,
-                marginVertical: 5,
-                borderRadius: 3,
-                width: '100%',
-              },
-              isDark ? null : tw`border border-[#ccc]`,
-            ]}
-          />
-        </View>
-      ))}
+    <View style={tw`w-full`}>
+      {inputs.map((input, i) => {
+        const [open, setOpen] = React.useState(false)
+        const onSubmit = () => {
+          if (i < inputs.length - 1) {
+            ref.current[i + 1]?.focus()
+          } else {
+            onSubmit?.()
+          }
+        }
+        const inputStyle = [
+          tw`w-full h-[40px] bg-white rounded-sm my-2 px-3`,
+          isDark ? null : tw`border border-[#ccc]`,
+          { zIndex: 9 },
+        ]
+        const choices = input.choices?.map((choice: string) => ({
+          label: choice,
+          value: choice,
+        }))
+        return (
+          <View key={input.source} style={[tw`mb-3`, { zIndex: 10 - i }]}>
+            {input.placeholder && (
+              <Text style={[tw`font-bold`, isDark ? tw`text-white` : tw``]}>
+                {input.placeholder}
+              </Text>
+            )}
+            {input.type === 'radio' ? (
+              <>
+                {input.choices?.map((choice: string) => (
+                  <TouchableOpacity
+                    key={choice}
+                    onPress={() =>
+                      setState((s: any) => ({ ...s, [input.source]: choice }))
+                    }
+                    style={tw`flex-row items-center py-3`}>
+                    <View
+                      style={[
+                        tw`rounded-full border w-3 h-3 mr-3 border-2`,
+                        state[input.source] === choice ? tw`bg-black` : tw``,
+                      ]}
+                    />
+                    <Text>{choice}</Text>
+                  </TouchableOpacity>
+                ))}
+              </>
+            ) : input.type === 'select' || input.type === 'selectCountry' ? (
+              <DropDownPicker
+                open={open}
+                value={state[input.source]}
+                setOpen={setOpen}
+                setValue={c => {
+                  setState((s: any) => ({ ...s, [input.source]: c(choices) }))
+                }}
+                listMode="SCROLLVIEW"
+                style={tw`mt-3 border-[#ccc] rounded min-h-0 py-3`}
+                items={choices!}
+                dropDownContainerStyle={[tw`border-[#ccc]`, { marginTop: 12 }]}
+              />
+            ) : input.type === 'boolean' ? (
+              <View style={[tw`flex-row`]}>
+                {['NO', 'YES'].map((choice: string, i) => (
+                  <Button
+                    onPress={() =>
+                      setState((s: any) => ({
+                        ...s,
+                        [input.source]: choice === 'YES',
+                      }))
+                    }>
+                    {choice}
+                  </Button>
+                ))}
+              </View>
+            ) : input.type === 'date' ? (
+              <View style={[tw`flex-row`]}>
+                {['YYYY', 'MM', 'DD'].map((part: string, i) => (
+                  <TextInput
+                    value={state[input.source + part]}
+                    placeholder={part}
+                    keyboardType="numeric"
+                    style={[...inputStyle, tw`flex-1`, i > 0 && tw`ml-3`]}
+                    autoCorrect={false}
+                    onChangeText={v =>
+                      setState((s: any) => ({ ...s, [input.source + part]: v }))
+                    }
+                  />
+                ))}
+              </View>
+            ) : (
+              <TextInput
+                ref={el => (ref.current[i] = el)}
+                {...input}
+                autoFocus={i === 0}
+                value={state[input.source]}
+                onSubmitEditing={onSubmit}
+                style={inputStyle}
+                autoCorrect={false}
+                onChangeText={v =>
+                  setState((s: any) => ({ ...s, [input.source]: v }))
+                }
+              />
+            )}
+          </View>
+        )
+      })}
     </View>
   )
 }
+
 export const getInitialStateFromInputs = (inputs: IInput[]) =>
   inputs.reduce((obj: any, c: any) => ({ ...obj, [c.source]: '' }), {})
