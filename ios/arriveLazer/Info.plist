@@ -57,6 +57,8 @@
 		<string>NotoSans-SemiBoldItalic.ttf</string>
 		<string>NotoSans-Thin.ttf</string>
 		<string>NotoSans-ThinItalic.ttf</string>
+		<string>Ionicons.ttf</string>
+		<string>EvilIcons.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen.storyboard</string>

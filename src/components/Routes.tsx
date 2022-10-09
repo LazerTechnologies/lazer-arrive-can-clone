@@ -20,7 +20,8 @@ const Stack = createNativeStackNavigator<RootStackParamList>()
 
 const Routes = () => (
   <NavigationContainer>
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
+    <Stack.Navigator
+      screenOptions={{ headerShown: false, headerTintColor: '#fff' }}>
       <Stack.Screen name="Landing" component={LandingScreen} />
       <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen
