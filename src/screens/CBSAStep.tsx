@@ -5,12 +5,26 @@ import { Form, getInitialStateFromInputs, IInput } from '../components/Form'
 import tw from '../utils/tw'
 import { InfoView } from '../components/InfoView'
 import { ProgressFooter } from '../components/ProgressFooter'
+import { useUser } from '../utils/auth'
+import { getTravellers } from '../utils/firestore'
 
 export const CBSAStep = ({ navigation, route }: any) => {
   const { inputs, index, infos, heading, description } = route.params
   const [state, setState] = React.useState({
     ...getInitialStateFromInputs(inputs),
+    dateOfArrival: true,
   })
+  const user = useUser()
+  const [travellers, setTravellers] = React.useState<any[] | null>(null)
+  React.useEffect(() => {
+    if (user)
+      getTravellers(user.uid).then(r => {
+        let arr: any[] = []
+        r.forEach(d => arr.push({ uid: d.id, ...d.data() }))
+        setTravellers(arr)
+      })
+  }, [user])
+
   const onClose = () => {
     navigation.dispatch(
       CommonActions.reset({ index: 0, routes: [{ name: 'Main' }] }),
@@ -29,19 +43,27 @@ export const CBSAStep = ({ navigation, route }: any) => {
       <ScrollView contentContainerStyle={tw`px-4`}>
         <Text style={tw`font-medium text-xl leading-1.2 mb-3`}>{heading}</Text>
         {infos?.map((info: any, i: number) => (
-          <InfoView key={i} style={tw`mb-5`}>
+          <InfoView description={info.description} key={i} style={tw`mb-5`}>
             <Text>{info.heading}</Text>
           </InfoView>
         ))}
         {description && <Text style={tw`mb-5`}>{description}</Text>}
         <Form
           onSubmit={onSubmit}
-          inputs={inputs}
+          inputs={inputs.map((i: any) =>
+            i.source === 'travellers'
+              ? {
+                  ...i,
+                  choices: travellers?.map(t => `${t.givenNames} ${t.surname}`),
+                }
+              : i,
+          )}
           state={state}
           setState={setState}
         />
       </ScrollView>
       <ProgressFooter
+        disabled={!Object.values(state).every(v => v !== '')}
         value={(index / STEPS.length) * 100}
         submitLabel="Next"
         onSubmit={onSubmit}
@@ -106,15 +128,15 @@ export const STEPS: {
     ],
   },
   {
-    title: 'Select/Add travellers',
-    heading: 'Select travellers for this trip',
+    title: 'Select/Add traveller',
+    heading: 'Select traveller for this trip',
     description:
-      'Use the checkbox beside the traveller entries below to select travellers from this trip.  You may also update the information or add new traveller entries to your list.',
+      'Use the checkbox beside the traveller entries below to select traveller from this trip.  You may also update the information or add new traveller entries to your list.',
     inputs: [
       {
         source: 'travellers',
-        type: 'travellers',
-        placeholder: 'Travellers',
+        type: 'radio',
+        placeholder: 'Traveller',
       },
     ],
   },

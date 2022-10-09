@@ -18,6 +18,7 @@ export const ProgressFooter = (props: any) => (
         </Button>
       )}
       <Button
+        disabled={props.disabled}
         style={[props.onBack ? tw`w-20` : tw`flex-1`]}
         onPress={props.onSubmit}>
         {props.submitLabel || 'Submit'}

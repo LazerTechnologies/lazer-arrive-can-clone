@@ -15,6 +15,8 @@ import { CBSAStep, STEPS } from '../screens/CBSAStep'
 import { CBSAConsent } from '../screens/CBSAConsent'
 import { CBSAConfirm } from '../screens/CBSAConfirm'
 import { CBSAAcknowledge } from '../screens/CBSAAcknowledge'
+import { TravellersInfoScreen } from '../screens/TravellersInfo'
+import { PostOnboardingInfoScreen } from '../screens/PostOnboardingInfo'
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
 
@@ -66,6 +68,16 @@ const Routes = () => (
           ...headerScreenOptions,
           headerTitle: 'Send your declaration to the CBSA',
         }}
+      />
+      <Stack.Screen
+        name="TravellersInfo"
+        component={TravellersInfoScreen}
+        options={{ ...headerScreenOptions, headerTitle: '' }}
+      />
+      <Stack.Screen
+        name="PostOnboardingInfo"
+        component={PostOnboardingInfoScreen}
+        options={{ headerTitle: '' }}
       />
       {STEPS.map((step, index) => (
         <Stack.Screen

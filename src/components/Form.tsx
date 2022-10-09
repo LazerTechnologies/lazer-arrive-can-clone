@@ -156,4 +156,10 @@ export const Form = ({
 }
 
 export const getInitialStateFromInputs = (inputs: IInput[]) =>
-  inputs.reduce((obj: any, c: any) => ({ ...obj, [c.source]: '' }), {})
+  inputs.reduce(
+    (obj: any, c: any) => ({
+      ...obj,
+      [c.source]: c.type === 'boolean' ? false : '',
+    }),
+    {},
+  )

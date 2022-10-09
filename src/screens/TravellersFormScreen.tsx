@@ -11,6 +11,7 @@ export const TravellersFormScreen = ({ navigation, route }: any) => {
   const user = useUser()
   const [state, setState] = React.useState({
     ...getInitialStateFromInputs(INPUTS),
+    dateOfBirth: true,
     documentType: route.params.documentType,
   })
   const onSubmit = () => {
@@ -18,9 +19,9 @@ export const TravellersFormScreen = ({ navigation, route }: any) => {
       navigation.dispatch(
         CommonActions.reset({ index: 0, routes: [{ name: 'Main' }] }),
       )
-      setTimeout(() => {
-        navigation.dispatch(TabActions.jumpTo('Travellers'))
-      }, 0)
+      // setTimeout(() => {
+      navigation.dispatch(TabActions.jumpTo('Travellers'))
+      // }, 0)
     })
   }
   return (
@@ -36,7 +37,10 @@ export const TravellersFormScreen = ({ navigation, route }: any) => {
           setState={setState}
         />
       </ScrollView>
-      <ProgressFooter onSubmit={onSubmit} />
+      <ProgressFooter
+        disabled={!Object.values(state).every(Boolean)}
+        onSubmit={onSubmit}
+      />
     </View>
   )
 }
@@ -49,7 +53,8 @@ const INPUTS: IInput[] = [
   },
   {
     source: 'country',
-    type: 'countrySelect',
+    type: 'select',
+    choices: ['Canada', 'United States of America'],
     placeholder: 'Country of issue',
   },
   {

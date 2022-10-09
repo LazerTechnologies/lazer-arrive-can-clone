@@ -9,7 +9,9 @@ export const Button = ({
   onPress,
   style,
   textStyle,
+  disabled,
 }: {
+  disabled?: boolean
   color?: 'default' | 'white' | 'secondary'
   variant?: 'contained' | 'outlined' | 'text' | 'link'
   onPress?: () => void
@@ -23,7 +25,9 @@ export const Button = ({
       style={[
         tw`py-2.5 rounded`,
         variant === 'contained'
-          ? color === 'white'
+          ? disabled
+            ? tw`bg-[#999]`
+            : color === 'white'
             ? tw`bg-white`
             : color === 'secondary'
             ? tw`bg-secondary`
@@ -37,7 +41,7 @@ export const Button = ({
         variant === 'outlined' && { backgroundColor: null },
         style,
       ]}
-      onPress={onPress}>
+      onPress={!disabled ? onPress : undefined}>
       <Text
         style={[
           tw`text-center text-background`,

@@ -14,6 +14,8 @@ export type RootStackParamList = {
   CBSAConsent: undefined
   CBSAConfirm: undefined
   CBSAAcknowledge: undefined
+  PostOnboardingInfo: undefined
+  TravellersInfo: undefined
 }
 
 export interface ITraveller {
