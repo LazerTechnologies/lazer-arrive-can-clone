@@ -4,17 +4,13 @@ import { StatusBar, Text, View } from 'react-native'
 import { Button } from '../../components/Button'
 import { Layout } from '../../components/Layout'
 import tw from '../../utils/tw'
+import { headerScreenOptions } from './TravellersStackScreen'
 
 const ResourcesStack = createNativeStackNavigator()
 
 export const ResourcesStackScreen = () => (
   <ResourcesStack.Navigator
-    screenOptions={{
-      headerBackground: () => <View style={tw`bg-background w-full h-full`} />,
-      headerTitleStyle: tw`text-white`,
-      headerTitleAlign: 'left',
-      headerTitle: 'Resources',
-    }}>
+    screenOptions={{ ...headerScreenOptions, headerTitle: 'Resources' }}>
     <ResourcesStack.Screen
       name="ResourcesRootScreen"
       component={ResourcesScreen}

@@ -8,6 +8,8 @@ export type RootStackParamList = {
   SettingsRootScreen: undefined
   HomeRootScreen: undefined
   TravellersRootScreen: undefined
+  TravellersAdd: undefined
+  TravellersForm: undefined
   ResourcesRootScreen: undefined
 }
 

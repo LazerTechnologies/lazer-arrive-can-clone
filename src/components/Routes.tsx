@@ -8,6 +8,11 @@ import { CreateAccountEmailScreen } from '../screens/CreateAccountEmail'
 import { CreateAccountPasswordScreen } from '../screens/CreateAccountPassword'
 import { CreateAccountVerifyScreen } from '../screens/CreateAccountVerify'
 import { MainScreen } from '../screens/Main'
+import { TravellersAddScreen } from '../screens/TravellersAddScreen'
+import { View } from 'react-native'
+import tw from '../utils/tw'
+import { TravellersFormScreen } from '../screens/TravellersFormScreen'
+import { headerScreenOptions } from '../screens/Main/TravellersStackScreen'
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
 
@@ -27,6 +32,16 @@ const Routes = () => (
       <Stack.Screen
         name="CreateAccountVerify"
         component={CreateAccountVerifyScreen}
+      />
+      <Stack.Screen
+        name="TravellersAdd"
+        component={TravellersAddScreen}
+        options={{ ...headerScreenOptions, headerTitle: 'Travel document' }}
+      />
+      <Stack.Screen
+        name="TravellersForm"
+        component={TravellersFormScreen}
+        options={{ ...headerScreenOptions, headerTitle: 'Document details' }}
       />
       <Stack.Screen name="Main" component={MainScreen} />
     </Stack.Navigator>

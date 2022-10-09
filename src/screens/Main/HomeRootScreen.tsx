@@ -8,17 +8,13 @@ import { Layout } from '../../components/Layout'
 import { ParamListBase } from '@react-navigation/routers'
 import tw from '../../utils/tw'
 import { Button } from '../../components/Button'
+import { headerScreenOptions } from './TravellersStackScreen'
 
 const HomeStack = createNativeStackNavigator()
 
 export const HomeStackScreen = () => (
   <HomeStack.Navigator
-    screenOptions={{
-      headerBackground: () => <View style={tw`bg-background w-full h-full`} />,
-      headerTitleStyle: tw`text-white`,
-      headerTitleAlign: 'left',
-      headerTitle: 'Home',
-    }}>
+    screenOptions={{ ...headerScreenOptions, headerTitle: 'Home' }}>
     <HomeStack.Screen name="HomeRootScreen" component={HomeRootScreen} />
   </HomeStack.Navigator>
 )

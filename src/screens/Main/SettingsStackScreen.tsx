@@ -9,17 +9,13 @@ import { Button } from '../../components/Button'
 import { Layout } from '../../components/Layout'
 import { logout } from '../../utils/auth'
 import tw from '../../utils/tw'
+import { headerScreenOptions } from './TravellersStackScreen'
 
 const SettingsStack = createNativeStackNavigator()
 
 export const SettingsStackScreen = () => (
   <SettingsStack.Navigator
-    screenOptions={{
-      headerBackground: () => <View style={tw`bg-background w-full h-full`} />,
-      headerTitleStyle: tw`text-white`,
-      headerTitleAlign: 'left',
-      headerTitle: 'Settings',
-    }}>
+    screenOptions={{ ...headerScreenOptions, headerTitle: 'Settings' }}>
     <SettingsStack.Screen
       name="SettingsRootScreen"
       component={SettingsRootScreen}
