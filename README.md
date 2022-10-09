@@ -34,7 +34,7 @@ As a result, we've done the following:
 2. Open-sourced the code needed to build the ArriveCAN clone app in React Native for Android and iOS.
 3. Launched the app on Testflight (for iOS) and Google Play Console (for Android). The reason it is distributed here is because to properly launch these apps on their respective app stores would take a few weeks and the goal here is mainly for case studies purposes.
 
-## What the ArriveCAN clone app includes doesn't include
+## What the ArriveCAN clone app includes and doesn't include
 The ArriveCAN clone app includes the primary experience needed to accomplish it's goal - a faster, improved border experience. This includes:
 - Authentication - creating a new account and logging into an account
 - Onboarding flow to educate the user on the experience and to help the user set up their traveller(s) profiles
