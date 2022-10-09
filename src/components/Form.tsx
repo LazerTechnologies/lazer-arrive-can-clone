@@ -39,10 +39,11 @@ export const Form = ({
     <View style={tw`w-full`}>
       {inputs.map((input, i) => {
         const [open, setOpen] = React.useState(false)
-        const onSubmit = () => {
+        const onSubmitEditing = () => {
           if (i < inputs.length - 1) {
             ref.current[i + 1]?.focus()
           } else {
+            // TODO: callstack overflow
             onSubmit?.()
           }
         }
@@ -136,7 +137,7 @@ export const Form = ({
                 {...input}
                 autoFocus={i === 0}
                 value={state[input.source]}
-                onSubmitEditing={onSubmit}
+                onSubmitEditing={onSubmitEditing}
                 style={inputStyle}
                 autoCorrect={false}
                 onChangeText={v =>
