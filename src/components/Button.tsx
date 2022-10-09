@@ -27,7 +27,10 @@ export const Button = ({
             ? tw`bg-white`
             : tw`bg-primary`
           : null,
-        variant === 'outlined' && tw`border border-white bg-background`,
+        variant === 'outlined' && color === 'white'
+          ? tw`border border-white`
+          : tw`border border-primary`,
+        variant === 'outlined' && { backgroundColor: null },
         style,
       ]}
       onPress={onPress}>
@@ -43,6 +46,10 @@ export const Button = ({
                 : tw`text-white`
               : variant === 'text'
               ? null
+              : variant === 'outlined'
+              ? color === 'white'
+                ? tw`text-white`
+                : tw`text-primary`
               : tw`text-white`,
             textStyle,
           ]}>

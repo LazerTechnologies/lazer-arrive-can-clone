@@ -13,6 +13,7 @@ import { View } from 'react-native'
 import tw from '../utils/tw'
 import { TravellersFormScreen } from '../screens/TravellersFormScreen'
 import { headerScreenOptions } from '../screens/Main/TravellersStackScreen'
+import { CBSAStep, STEPS } from '../screens/CBSAStep'
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
 
@@ -43,6 +44,21 @@ const Routes = () => (
         component={TravellersFormScreen}
         options={{ ...headerScreenOptions, headerTitle: 'Document details' }}
       />
+      {STEPS.map((step, index) => (
+        <Stack.Screen
+          key={index}
+          // @ts-ignore
+          name={`CBSAStep${index + 1}`}
+          component={CBSAStep}
+          options={{ ...headerScreenOptions, headerTitle: step.title }}
+          initialParams={{
+            // @ts-ignore
+            inputs: step.inputs,
+            index: index + 1,
+            heading: step.heading,
+          }}
+        />
+      ))}
       <Stack.Screen name="Main" component={MainScreen} />
     </Stack.Navigator>
   </NavigationContainer>

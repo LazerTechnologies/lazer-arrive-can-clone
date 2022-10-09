@@ -95,9 +95,16 @@ export const Form = ({
                 dropDownContainerStyle={[tw`border-[#ccc]`, { marginTop: 12 }]}
               />
             ) : input.type === 'boolean' ? (
-              <View style={[tw`flex-row`]}>
+              <View style={[tw`flex-row mt-3`]}>
                 {['NO', 'YES'].map((choice: string, i) => (
                   <Button
+                    style={[i === 0 && tw`mr-2`, tw`flex-1`]}
+                    variant={
+                      (state[input.source] && choice === 'YES') ||
+                      (!state[input.source] && choice === 'NO')
+                        ? 'contained'
+                        : 'outlined'
+                    }
                     onPress={() =>
                       setState((s: any) => ({
                         ...s,

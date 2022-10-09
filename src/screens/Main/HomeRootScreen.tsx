@@ -33,6 +33,6 @@ const HomeRootScreen = ({
     <Text style={tw`mb-4 text-center text-2xl font-semibold`}>
       Start your advance CBSA Declaration
     </Text>
-    <Button>Start</Button>
+    <Button onPress={() => navigation.navigate('CBSAStep1')}>Start</Button>
   </Layout>
 )
