@@ -9,11 +9,12 @@ import { CreateAccountPasswordScreen } from '../screens/CreateAccountPassword'
 import { CreateAccountVerifyScreen } from '../screens/CreateAccountVerify'
 import { MainScreen } from '../screens/Main'
 import { TravellersAddScreen } from '../screens/TravellersAddScreen'
-import { View } from 'react-native'
-import tw from '../utils/tw'
 import { TravellersFormScreen } from '../screens/TravellersFormScreen'
 import { headerScreenOptions } from '../screens/Main/TravellersStackScreen'
 import { CBSAStep, STEPS } from '../screens/CBSAStep'
+import { CBSAConsent } from '../screens/CBSAConsent'
+import { CBSAConfirm } from '../screens/CBSAConfirm'
+import { CBSAAcknowledge } from '../screens/CBSAAcknowledge'
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
 
@@ -43,6 +44,21 @@ const Routes = () => (
         name="TravellersForm"
         component={TravellersFormScreen}
         options={{ ...headerScreenOptions, headerTitle: 'Document details' }}
+      />
+      <Stack.Screen
+        name="CBSAConsent"
+        component={CBSAConsent}
+        options={{ ...headerScreenOptions, headerTitle: '' }}
+      />
+      <Stack.Screen
+        name="CBSAConfirm"
+        component={CBSAConfirm}
+        options={{ ...headerScreenOptions, headerTitle: '' }}
+      />
+      <Stack.Screen
+        name="CBSAAcknowledge"
+        component={CBSAAcknowledge}
+        options={{ ...headerScreenOptions, headerTitle: '' }}
       />
       {STEPS.map((step, index) => (
         <Stack.Screen

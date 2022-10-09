@@ -15,9 +15,7 @@ export const CBSAStep = ({ navigation, route }: any) => {
     if (index < STEPS.length - 1) {
       navigation.navigate(`CBSAStep${index + 1}`)
     } else {
-      navigation.dispatch(
-        CommonActions.reset({ index: 0, routes: [{ name: 'Main' }] }),
-      )
+      navigation.navigate(`CBSAAcknowledge`)
     }
   }
   return (
