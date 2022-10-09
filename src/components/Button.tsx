@@ -27,35 +27,33 @@ export const Button = ({
             ? tw`bg-white`
             : tw`bg-primary`
           : null,
-        variant === 'outlined' && color === 'white'
-          ? tw`border border-white`
-          : tw`border border-primary`,
+        variant === 'outlined'
+          ? color === 'white'
+            ? tw`border border-white`
+            : tw`border border-primary`
+          : null,
         variant === 'outlined' && { backgroundColor: null },
         style,
       ]}
       onPress={onPress}>
-      <View>
-        <Text
-          style={[
-            tw`text-center text-background`,
-            variant === 'link'
-              ? tw`text-[#ccc] underline`
-              : variant === 'contained'
-              ? color === 'white'
-                ? tw`text-background`
-                : tw`text-white`
-              : variant === 'text'
-              ? null
-              : variant === 'outlined'
-              ? color === 'white'
-                ? tw`text-white`
-                : tw`text-primary`
-              : tw`text-white`,
-            textStyle,
-          ]}>
-          {children}
-        </Text>
-      </View>
+      <Text
+        style={[
+          tw`text-center text-background`,
+          variant === 'contained'
+            ? color === 'white'
+              ? tw`text-background`
+              : tw`text-white`
+            : null,
+          variant === 'outlined'
+            ? color === 'white'
+              ? tw`text-white`
+              : tw`text-primary`
+            : null,
+          variant === 'link' ? tw`text-[#ccc] underline` : null,
+          textStyle,
+        ]}>
+        {children}
+      </Text>
     </TouchableOpacity>
   )
 }

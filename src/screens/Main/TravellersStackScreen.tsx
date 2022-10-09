@@ -39,7 +39,7 @@ const TravellersHomeScreen = ({ navigation }: any) => {
       })
   }, [user, forceUpdate])
   return (
-    <Layout style={travellers?.length ? tw`justify-start mt-4` : tw``}>
+    <Layout style={travellers?.length ? tw`justify-start pt-4` : tw``}>
       <StatusBar barStyle="light-content" />
       {travellers && (
         <>
