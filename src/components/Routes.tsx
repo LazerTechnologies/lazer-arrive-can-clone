@@ -23,20 +23,36 @@ const Stack = createNativeStackNavigator<RootStackParamList>()
 const Routes = () => (
   <NavigationContainer>
     <Stack.Navigator
-      screenOptions={{ headerShown: false, headerTintColor: '#fff' }}>
-      <Stack.Screen name="Landing" component={LandingScreen} />
-      <Stack.Screen name="Login" component={LoginScreen} />
+      screenOptions={{
+        headerShown: true,
+        headerTransparent: true,
+        headerBackTitle: '',
+        headerTintColor: '#fff',
+      }}>
+      <Stack.Screen
+        name="Landing"
+        options={{ headerTitle: '' }}
+        component={LandingScreen}
+      />
+      <Stack.Screen
+        name="Login"
+        options={{ headerTitle: '' }}
+        component={LoginScreen}
+      />
       <Stack.Screen
         name="CreateAccountEmail"
         component={CreateAccountEmailScreen}
+        options={{ headerTitle: '' }}
       />
       <Stack.Screen
         name="CreateAccountPassword"
         component={CreateAccountPasswordScreen}
+        options={{ headerTitle: '' }}
       />
       <Stack.Screen
         name="CreateAccountVerify"
         component={CreateAccountVerifyScreen}
+        options={{ headerTitle: '' }}
       />
       <Stack.Screen
         name="TravellersAdd"

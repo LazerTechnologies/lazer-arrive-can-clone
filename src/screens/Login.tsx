@@ -38,7 +38,11 @@ export const LoginScreen = ({
 
       <Text style={tw`text-center text-white mt-12`}>
         Don't have an account?{' '}
-        <Text style={tw`underline font-bold`}>Create account</Text>
+        <Text
+          onPress={() => navigation.navigate('CreateAccountEmail')}
+          style={tw`underline font-bold`}>
+          Create account
+        </Text>
       </Text>
       <Button variant="link" style={tw`mt-2`}>
         Get Help
