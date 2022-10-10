@@ -30,7 +30,7 @@ We of course can build a cloned version of the ArriveCAN app extremely quickly a
 With all this being said, we wanted to showcase how quickly the core app could be made. You can see from the Github commits when we started building this clone and how long it took to build out the app. The app itself was built over the Thanksgiving long-weekend by Dan Whiffing at Lazer and he has done an amazing job with it.
 
 As a result, we've done the following:
-1. Recorded a screen-recording of the app itself and the core experiences in it. It can be viewed here:
+1. Recorded a screen-recording of the app itself and the core experiences in it. It can be viewed here: [https://share.vidyard.com/watch/NweuRyHpb81hamGmPcoup2?](https://share.vidyard.com/watch/NweuRyHpb81hamGmPcoup2?)
 2. Open-sourced the code needed to build the ArriveCAN clone app in React Native for Android and iOS.
 3. Launched the app on App Center (for iOS) and Google Play Developer Console (for Android). Unfortunately, we cannot share a link for the public to download because the apps would need to first go through an approval process with Apple/Google which could take weeks. As of now, we can accept emails from people to send them access to the app, however it is limited to a maximum number of 100 people due to Apple/Google requirements.
 
