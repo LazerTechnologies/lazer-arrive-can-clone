@@ -63,3 +63,4 @@ buck-out/
 /ios/Pods/
 /vendor/bundle/
 GoogleService-Info.plist
+AppCenter-Config.plist

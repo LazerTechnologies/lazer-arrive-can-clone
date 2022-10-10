@@ -18,6 +18,7 @@
 		37521A5628F0B4250016F58F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37521A5528F0B4240016F58F /* GoogleService-Info.plist */; };
 		37521A5D28F328160016F58F /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 37521A5B28F328160016F58F /* EvilIcons.ttf */; };
 		37521A5E28F328160016F58F /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 37521A5C28F328160016F58F /* Ionicons.ttf */; };
+		37521A6028F398110016F58F /* AppCenter-Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37521A5F28F398110016F58F /* AppCenter-Config.plist */; };
 		4E2CD07FFDE74A6181B32F36 /* NotoSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4A6418C5638D44C4A296D694 /* NotoSans-SemiBold.ttf */; };
 		5B8713A3DF6341A7845AFFA4 /* Pods_arriveLazer_arriveLazerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040EAEEA7192056153EE3ABF /* Pods_arriveLazer_arriveLazerTests.framework */; };
 		739F5F59531C4F67A761487C /* NotoSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B99265CAFC604FC2BC79B862 /* NotoSans-BoldItalic.ttf */; };
@@ -64,6 +65,7 @@
 		37521A5528F0B4240016F58F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		37521A5B28F328160016F58F /* EvilIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		37521A5C28F328160016F58F /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
+		37521A5F28F398110016F58F /* AppCenter-Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "AppCenter-Config.plist"; path = "../AppCenter-Config.plist"; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-arriveLazer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-arriveLazer.debug.xcconfig"; path = "Target Support Files/Pods-arriveLazer/Pods-arriveLazer.debug.xcconfig"; sourceTree = "<group>"; };
 		40939E63F08B4756BF95CF46 /* NotoSans-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSans-LightItalic.ttf"; path = "../assets/fonts/NotoSans-LightItalic.ttf"; sourceTree = "<group>"; };
 		4A6418C5638D44C4A296D694 /* NotoSans-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSans-SemiBold.ttf"; path = "../assets/fonts/NotoSans-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				37521A5528F0B4240016F58F /* GoogleService-Info.plist */,
+				37521A5F28F398110016F58F /* AppCenter-Config.plist */,
 				37521A5B28F328160016F58F /* EvilIcons.ttf */,
 				37521A5C28F328160016F58F /* Ionicons.ttf */,
 				13B07FAE1A68108700A75B9A /* arriveLazer */,
@@ -319,6 +322,7 @@
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				37521A5628F0B4250016F58F /* GoogleService-Info.plist in Resources */,
 				97E7A869F1B34468B6677A5E /* NotoSans-Black.ttf in Resources */,
+				37521A6028F398110016F58F /* AppCenter-Config.plist in Resources */,
 				DFF4C2D89CF3443A91E276A4 /* NotoSans-BlackItalic.ttf in Resources */,
 				8A747D45732C438FB8E4207F /* NotoSans-Bold.ttf in Resources */,
 				739F5F59531C4F67A761487C /* NotoSans-BoldItalic.ttf in Resources */,
@@ -604,6 +608,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = "com.lazer.lazercan-ios";
 				PRODUCT_NAME = arriveLazer;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -629,6 +634,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = "com.lazer.lazercan-ios";
 				PRODUCT_NAME = arriveLazer;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
