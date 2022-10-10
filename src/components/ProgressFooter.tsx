@@ -11,7 +11,7 @@ export const ProgressFooter = (props: any) => (
         <View style={tw`h-[3px] bg-secondary w-[${props.value}%]`} />
       </View>
     )}
-    <View style={tw`flex flex-row justify-between mt-3 mx-5`}>
+    <View style={tw`flex flex-row justify-between mt-3 mx-5 android:mb-4`}>
       {props.onBack && (
         <Button variant="text" style={tw`w-10 mr-4`} onPress={props.onBack}>
           {props.backLabel || 'Back'}

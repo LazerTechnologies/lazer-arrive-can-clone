@@ -64,3 +64,5 @@ buck-out/
 /vendor/bundle/
 GoogleService-Info.plist
 AppCenter-Config.plist
+google-services.json
+appcenter-config.json

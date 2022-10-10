@@ -11,6 +11,7 @@ const TravellersStack = createNativeStackNavigator()
 
 export const headerScreenOptions = {
   headerBackground: () => <View style={tw`bg-background w-full h-full`} />,
+  headerTitleAlign: 'center' as 'center',
   headerShown: true,
   headerTitleStyle: tw`text-white`,
   headerBackTitle: '',
@@ -18,7 +19,10 @@ export const headerScreenOptions = {
 
 export const TravellersStackScreen = () => (
   <TravellersStack.Navigator
-    screenOptions={{ ...headerScreenOptions, headerTitle: 'Saved Travellers' }}>
+    screenOptions={{
+      ...headerScreenOptions,
+      headerTitle: 'Saved Travellers',
+    }}>
     <TravellersStack.Screen
       name="TravellersRootScreen"
       component={TravellersHomeScreen}

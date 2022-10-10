@@ -18,7 +18,8 @@ export const CreateAccountEmailScreen = ({
   const onSignIn = () => navigation.navigate('Login')
   return (
     <Layout isDark>
-      <Text style={tw`text-white text-2xl text-center font-semibold mb-6`}>
+      <Text
+        style={tw`text-white text-2xl text-center font-semibold mb-6 android:mt-20`}>
         What's your email address?
       </Text>
       <Form

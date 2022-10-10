@@ -26,24 +26,24 @@ export const CBSAConfirm = ({ navigation }: any) => {
         </Text>
 
         <Paper>
-          <View style={tw`px-5 py-2`}>
+          {/* <View style={tw`px-5 py-2`}>
             <Text style={tw`text-xs`}>
               Toronto Pearson International Airport - Terminal 1 (YYZ)
             </Text>
-          </View>
+          </View> */}
           <View style={tw`bg-[#EBF3F6] py-5`}>
             <Text style={tw`text-4xl font-bold text-center`}>PKPUE</Text>
             <Text style={tw`text-center text-xs`}>2022-10-07 16:14:30</Text>
           </View>
-          <View style={tw`py-1.5`}></View>
+          {/* <View style={tw`py-1.5`}></View> */}
         </Paper>
 
-        <Paper>
+        {/* <Paper>
           <View style={tw`px-5 py-4`}>
             <Text style={tw`font-semibold mb-4`}>Traveller (1)</Text>
             <Text>Daniel Whiffing</Text>
           </View>
-        </Paper>
+        </Paper> */}
       </ScrollView>
 
       <ProgressFooter submitLabel="Close" onSubmit={onSubmit} />

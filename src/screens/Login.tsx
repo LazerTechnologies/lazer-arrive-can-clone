@@ -19,7 +19,8 @@ export const LoginScreen = ({
   }
   return (
     <Layout isDark>
-      <Text style={tw`text-white text-2xl text-center font-semibold mb-6`}>
+      <Text
+        style={tw`text-white text-2xl text-center font-semibold mb-6 android:mt-20`}>
         Sign into ArriveCAN
       </Text>
       <Form

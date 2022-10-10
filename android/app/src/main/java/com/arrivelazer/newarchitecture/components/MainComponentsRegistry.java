@@ -1,4 +1,4 @@
-package com.arrivelazer.newarchitecture.components;
+package com.lazer.lazercanandroid.newarchitecture.components;
 
 import com.facebook.jni.HybridData;
 import com.facebook.proguard.annotations.DoNotStrip;

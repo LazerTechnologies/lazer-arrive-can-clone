@@ -47,7 +47,7 @@ export const Form = ({
           }
         }
         const inputStyle = [
-          tw`w-full h-[40px] bg-white rounded-sm my-2 px-3`,
+          tw`w-full h-[40px] bg-white rounded-sm my-2 px-3 text-black`,
           isDark ? null : tw`border border-[#ccc]`,
           { zIndex: 9 },
         ]
@@ -126,7 +126,11 @@ export const Form = ({
                     value={state[input.source + part]}
                     placeholder={part}
                     keyboardType="numeric"
-                    style={[...inputStyle, tw`flex-1`, i > 0 && tw`ml-3`]}
+                    style={[
+                      ...inputStyle,
+                      tw`flex-1 text-black`,
+                      i > 0 && tw`ml-3`,
+                    ]}
                     autoCorrect={false}
                     onChangeText={v =>
                       setState((s: any) => ({ ...s, [input.source + part]: v }))

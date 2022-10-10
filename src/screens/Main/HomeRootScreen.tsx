@@ -15,7 +15,11 @@ const HomeStack = createNativeStackNavigator()
 
 export const HomeStackScreen = () => (
   <HomeStack.Navigator
-    screenOptions={{ ...headerScreenOptions, headerTitle: 'Home' }}>
+    screenOptions={{
+      ...headerScreenOptions,
+      headerShown: false,
+      headerTitle: '',
+    }}>
     <HomeStack.Screen name="HomeRootScreen" component={HomeRootScreen} />
   </HomeStack.Navigator>
 )

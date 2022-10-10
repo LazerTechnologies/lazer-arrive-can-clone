@@ -18,7 +18,7 @@ export const InfoView = ({
         tw`flex-row bg-[#EBF3F6] border border-[#B8C8CF] rounded-lg py-4 pl-2 pr-4 justify-between`,
         style,
       ]}>
-      <View style={tw`flex-row pr-10`}>
+      <View style={tw`flex-row pr-2`}>
         <IonIcons
           name="information-circle"
           color="#5683A7"

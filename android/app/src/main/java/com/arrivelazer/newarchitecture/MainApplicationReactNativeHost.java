@@ -1,4 +1,4 @@
-package com.arrivelazer.newarchitecture;
+package com.lazer.lazercanandroid.newarchitecture;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
@@ -19,9 +19,9 @@ import com.facebook.react.fabric.CoreComponentsRegistry;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.fabric.ReactNativeConfig;
 import com.facebook.react.uimanager.ViewManagerRegistry;
-import com.arrivelazer.BuildConfig;
-import com.arrivelazer.newarchitecture.components.MainComponentsRegistry;
-import com.arrivelazer.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
+import com.lazer.lazercanandroid.BuildConfig;
+import com.lazer.lazercanandroid.newarchitecture.components.MainComponentsRegistry;
+import com.lazer.lazercanandroid.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import java.util.ArrayList;
 import java.util.List;
 

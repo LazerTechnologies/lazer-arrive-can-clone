@@ -25,34 +25,34 @@ const Routes = () => (
     <Stack.Navigator
       screenOptions={{
         headerShown: true,
-        headerTransparent: true,
+
         headerBackTitle: '',
         headerTintColor: '#fff',
       }}>
       <Stack.Screen
         name="Landing"
-        options={{ headerTitle: '' }}
+        options={{ headerTitle: '', headerTransparent: true }}
         component={LandingScreen}
       />
       <Stack.Screen
         name="Login"
-        options={{ headerTitle: '' }}
+        options={{ headerTitle: '', headerTransparent: true }}
         component={LoginScreen}
       />
       <Stack.Screen
         name="CreateAccountEmail"
         component={CreateAccountEmailScreen}
-        options={{ headerTitle: '' }}
+        options={{ headerTitle: '', headerTransparent: true }}
       />
       <Stack.Screen
         name="CreateAccountPassword"
         component={CreateAccountPasswordScreen}
-        options={{ headerTitle: '' }}
+        options={{ headerTitle: '', headerTransparent: true }}
       />
       <Stack.Screen
         name="CreateAccountVerify"
         component={CreateAccountVerifyScreen}
-        options={{ headerTitle: '' }}
+        options={{ headerTitle: '', headerTransparent: true }}
       />
       <Stack.Screen
         name="TravellersAdd"
@@ -112,7 +112,11 @@ const Routes = () => (
           }}
         />
       ))}
-      <Stack.Screen name="Main" component={MainScreen} />
+      <Stack.Screen
+        name="Main"
+        component={MainScreen}
+        options={{ headerTitle: '', headerShown: false }}
+      />
     </Stack.Navigator>
   </NavigationContainer>
 )

@@ -1,4 +1,4 @@
-package com.arrivelazer.newarchitecture.modules;
+package com.lazer.lazercanandroid.newarchitecture.modules;
 
 import com.facebook.jni.HybridData;
 import com.facebook.react.ReactPackage;

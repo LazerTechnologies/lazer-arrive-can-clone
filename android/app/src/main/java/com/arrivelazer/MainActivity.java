@@ -1,4 +1,4 @@
-package com.arrivelazer;
+package com.lazer.lazercanandroid;
 
 import android.os.Bundle;
 import com.facebook.react.ReactActivity;
