@@ -12,7 +12,7 @@ Having built over [100+ different apps at Lazer](https://www.lazertechnologies.c
 
 With this context and initial frustration, we wanted to shed light into how quickly an app like this could be made and how capital efficient it could be if the right parties were engaged in the process. The best way we believed we could do this was by sharing insight into this topic and by showing that it could be done. That's why we decided to make a simple clone version of the ArriveCAN app. Proving that this app could be built in a weekend is a good way to focus attention on the problem, but hopefully it opens up the discussion as to why Canada doesn’t have the best structure, team, resources, tools, frameworks, etc to produce new technology efficiently.
 
-We understand that mistakes were made, but the only way to improve moving forward is to learn from mistakes that we're made and to implement those lessons in future scenarios. 
+We understand that mistakes were made, but the only way to improve moving forward is to learn from mistakes that were made and to implement those lessons in future scenarios. 
 
 ## A bit more empathy
 It's easy to the criticize the government for all of their mistakes and downfalls, but to outline the situation further, creating an app that is meant to improve the Canadian border experience for the entire country has many challenges associated with it.
