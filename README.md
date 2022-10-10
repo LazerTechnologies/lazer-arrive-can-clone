@@ -58,4 +58,4 @@ What we chose not to incorporate into this clone app is:
 - TypeScript
 
 ## Notes
-Special thank you to Dan Whiffing at Lazer for creating a clone in such a quick amount of time ❤️ For anyone that has any questions, feel free to email us at founders@lazertechnologies.com
+Special thank you to [Dan Whiffing](https://github.com/dwhiffing) at Lazer for creating a clone in such a quick amount of time ❤️ For anyone that has any questions, feel free to email us at founders@lazertechnologies.com
