@@ -16,7 +16,7 @@ export const CreateAccountPasswordScreen = ({
   const onSubmit = () => {
     // TODO: confirm that passwords are the same
     createUser(route.params.email, state.password).then(() => {
-      navigation.navigate('Main')
+      navigation.navigate('PostOnboardingInfo')
     })
   }
   const onSignIn = () => navigation.navigate('Login')

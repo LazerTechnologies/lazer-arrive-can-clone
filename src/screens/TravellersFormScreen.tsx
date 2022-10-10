@@ -19,9 +19,9 @@ export const TravellersFormScreen = ({ navigation, route }: any) => {
       navigation.dispatch(
         CommonActions.reset({ index: 0, routes: [{ name: 'Main' }] }),
       )
-      // setTimeout(() => {
-      navigation.dispatch(TabActions.jumpTo('Travellers'))
-      // }, 0)
+      setTimeout(() => {
+        navigation.dispatch(TabActions.jumpTo('Travellers'))
+      }, 0)
     })
   }
   return (
