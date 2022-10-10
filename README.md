@@ -50,6 +50,9 @@ What we chose not to incorporate into this clone app is:
 - Optical character recognition (OCR) feature to scan a passport and automatically inser the details from it into a form
 - Actual translating of the copy into French and Spanish
 - Integration into the appropriate federal government backend systems
+- Accessibility 
+- Complete testing (unit, integration, etc)
+- More
 
 ## What the app was built with
 - React Native
@@ -57,5 +60,7 @@ What we chose not to incorporate into this clone app is:
 - Tailwind
 - TypeScript
 
-## Notes
+## Final notes
+Of course we know that an app like ArriveCAN cannot actually be taken from idea to release in a weekend. However, we hope this demonstrates that there are extremely talented engineers, designers, product managers, and consulstants out there who are capable of delivering outstanding work in an efficient manner. We hope the government takes this into account for the future as considering more diverse technical partners in Canada for their projects can help them tap into a larger talent pool across Canada and help them achieve their goals at a more reasonable cost to taxpayers.
+
 Special thank you to [Dan Whiffing](https://github.com/dwhiffing) at Lazer for creating a clone in such a quick amount of time ❤️ For anyone that has any questions, feel free to email us at founders@lazertechnologies.com
