@@ -607,7 +607,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lazer.lazercan-ios.--PRODUCT-NAME-rfc1034identifier-";
 				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = "com.lazer.lazercan-ios";
 				PRODUCT_NAME = arriveLazer;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -633,7 +633,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lazer.lazercan-ios.--PRODUCT-NAME-rfc1034identifier-";
 				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = "com.lazer.lazercan-ios";
 				PRODUCT_NAME = arriveLazer;
 				SWIFT_VERSION = 5.0;
